@@ -11,17 +11,17 @@
 
 ## Computación 2022
 
-**Asignatura**: <!-- REEMPLAZA este comentario por el nombre de la asignatura -->
+**Asignatura**: <!-- PSR -->
 
-**Nombre TP**: <!-- REEMPLAZA este comentario por el nombre del TP -->
+**Nombre TP**: <!-- ENTREGA CUATRO -->
 
-**Apellido y nombre Alumno**: <!-- REEMPLAZA este comentario por tu apellido y nombre -->
+**Apellido y nombre Alumnas**: <!-- Galeano Diana y Torrez jessica -->
 
-**Curso**: <!-- REEMPLAZA este comentario por tu curso -->
+**Curso**: <!-- 6º7º-->
 
 # Título del Proyecto
 
-_Acá va un párrafo que describa lo que es el proyecto._
+_Software._
 
 ## Comenzando 🚀
 
