@@ -11,13 +11,15 @@ begin
 				FROM experiencia
                 WHERE unCuil = Cuil 
                 OR unIdTecnologia = IdTecnologia 
-                AND  Experiencia AND IdTecnologia)
-    ) then 
+    )) then 
         UPDATE Experiencia
         SET calificacion = unaCalificacion 
         WHERE Cuil = unCuil 
         AND idTecnologia = unIdTecnologia;
-    END IF
+    END IF;
+    else
+        INSERT INTO 
+    end if;
 end $$
 
 
