@@ -5,7 +5,7 @@ begin
 					VALUES (unCuil , unNombre , unApellido , unaContratacion);
 end $$
 
-CREATE PROCEDURE AsignarExperencia (unCuil INT, unidTecnologia TINYINT, unaCalificacion TINYINT UNSIGNED)
+CREATE PROCEDURE AsignarExperencia (unCuil INT, unIdTecnologia TINYINT, unaCalificacion TINYINT UNSIGNED)
 begin
     if (EXISTS(SELECT * 
 				FROM experiencia
@@ -18,7 +18,8 @@ begin
         AND idTecnologia = unIdTecnologia;
     END IF;
     else
-        INSERT INTO 
+        INSERT INTO Experiencia (cuil, idTecnologia, calificacion)
+                    VALUES (unCuil, unIdTecnologia, unaCalificacion)
     end if;
 end $$
 
