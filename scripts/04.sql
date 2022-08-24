@@ -19,7 +19,7 @@ begin
     END IF;
     else
         INSERT INTO Experiencia (cuil, idTecnologia, calificacion)
-                    VALUES (unCuil, unIdTecnologia, unaCalificacion)
+                    VALUES (unCuil, unIdTecnologia, unaCalificacion);
     end if;
 end $$
 
