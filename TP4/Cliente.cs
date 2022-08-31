@@ -15,7 +15,7 @@ namespace TP4
         }
         public void AgregarProyecto(Proyecto proyecto)
         {
-            Proyecto.Add()
+            Proyectos.Add(proyecto);
         } 
     }
 }
