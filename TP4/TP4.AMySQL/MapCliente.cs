@@ -1,6 +1,4 @@
 ﻿namespace TP4.AdoMySQL;
-public class Class1
-{
     
     public class MapCliente: Mapeador<Cliente>
     {
@@ -51,5 +49,4 @@ public class Class1
         }
 
         public List<Cliente> ObtenerClientes() => ColeccionDesdeTabla();
-    }
     }
