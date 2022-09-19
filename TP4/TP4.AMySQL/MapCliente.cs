@@ -1,5 +1,8 @@
-﻿namespace TP4.AdoMySQL;
-    
+﻿using System;
+using et12.edu.ar.AGBD.Mapeadores;
+
+namespace TP4.AdoMySQL;
+
     public class MapCliente: Mapeador<Cliente>
     {
         public MapCliente(AdoAGBD ado):base(ado)
@@ -9,7 +12,7 @@
         public override Cliente ObjetoDesdeFila(DataRow fila)
             => new Cliente()
             {
-                Id = Convert.ToByte(fila["idCliente"]),
+                Cuit= Convert.ToByte(fila["idCliente"]),
                 Nombre = fila["Cliente"].ToString()
             };
 
