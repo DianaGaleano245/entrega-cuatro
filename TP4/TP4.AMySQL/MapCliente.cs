@@ -1,6 +1,7 @@
 ﻿using System;
 using et12.edu.ar.AGBD.Mapeadores;
-
+using System.Data;
+using System.Collections.Generic;
 namespace TP4.AdoMySQL;
 
     public class MapCliente: Mapeador<Cliente>
@@ -10,14 +11,14 @@ namespace TP4.AdoMySQL;
             Tabla = "Cliente";
         }
         public override Cliente ObjetoDesdeFila(DataRow fila)
-            => new Cliente()
+            => new cliente()
             {
                 Cuit= Convert.ToByte(fila["idCliente"]),
                 Nombre = fila["Cliente"].ToString()
             };
 
         public void AltaCliente(Cliente cliente)
-            => EjecutarComandoCon("altaCliente", ConfigurarAltaCliente, PostAltaCliente, Cliente);
+            => EjecutarComandoCon("altaCliente", ConfigurarAltaCliente, PostAltaCliente, cliente);
 
         public void ConfigurarAltaCliente(Cliente cliente)
         {
@@ -36,16 +37,16 @@ namespace TP4.AdoMySQL;
         public void PostAltaCliente(Cliente cliente)
         {
             var paramIdCliente = GetParametro("unIdCliente");
-            Cliente.Id = Convert.ToByte(paramIdCliente.Value);
+            cliente.Cuit = Convert.ToInt32(paramIdCliente.Value);
         }
 
-        public Cliente ClientePorId(byte id)
+        public Cliente ClientePorId(byte cuit)
         {
             SetComandoSP("ClientePorId");
 
             BP.CrearParametro("unIdCliente")
                 .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Byte)
-                .SetValor(id)
+                .SetValor(cuit)
                 .AgregarParametro();
 
             return ElementoDesdeSP();
