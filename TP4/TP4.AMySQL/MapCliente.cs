@@ -31,7 +31,7 @@ public class MapCliente : Mapeador<Cliente>
 
         BP.CrearParametro("unCliente")
             .SetTipoVarchar(45)
-            .SetValor(Cliente.razonSocial)
+            .SetValor(cliente.RazonSocial)
             .AgregarParametro();
     }
 
