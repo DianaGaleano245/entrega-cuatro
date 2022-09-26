@@ -49,8 +49,8 @@ end$$
 /*Realizar el SP asignarExperiencia que recibe como parámetros cuil, idTecnologia y una calificación. 
 El SP tiene que crear un registro en caso de que no exista o actualizarlo en caso de que si exista*/
 DELIMITER $$
-drop PROCEDURE if exists AsingnarExperiencia $$
-CREATE PROCEDURE AsignarExperencia (unCuil INT, unidTecnologia TINYINT, unaCalificacion TINYINT UNSIGNED)
+drop PROCEDURE if exists AsignarExperiencia $$
+CREATE PROCEDURE AsignarExperiencia (unCuil INT, unidTecnologia TINYINT, unaCalificacion TINYINT UNSIGNED)
 begin
     if (EXISTS(SELECT * 
 				FROM experiencia
@@ -60,14 +60,11 @@ begin
 
 		UPDATE Experiencia
 		SET calificacion = unaCalificacion
-		WHERE Calificacion 
-		AND idTecnologia = unIdTecnologia
+		WHERE idTecnologia = unIdTecnologia
 		AND Cuil = unCuil;
-
-	end if;
 	else
 		INSERT INTO Experiencia (cuil, idTecnologia, calificacion)
-                    VALUES (unCuil, unIdTecnologia, unaCalificacion)
+                    VALUES (unCuil, unIdTecnologia, unaCalificacion);
 	END if;
 end $$
 
@@ -79,7 +76,7 @@ CREATE PROCEDURE FinalizarTarea (unIdRequerimiento INT , unCuil INT , unFinal DA
 begin
         UPDATE  Tarea
 		SET     fin = unFinal
-		WHERE   fin = NULL
+		WHERE   fin is NULL
 		AND IdRequerimiento = unIdRequerimiento
 		AND Cuil = unCuil;
 end$$
@@ -87,8 +84,9 @@ end$$
 /*Realizar la SF complejidadPromedio que reciba como parámetro un idProyecto y devuelva un float representando el promedio de  complejidad de los
 requerimientos para el Proyecto pasado por parámetro.*/
 DELIMITER $$
+DROP FUNCTION complejidadPromedio $$ 
 CREATE FUNCTION complejidadPromedio (unidProyecto SMALLINT
-										) RETURNS FLOAT
+										) RETURNS FLOAT reads sql data
 begin
 		DECLARE Resultado FLOAT;
         
@@ -101,12 +99,12 @@ end $$
 /*Realizar la SF sueldoMensual que en base a un cuil devuelva el sueldo a pagar (DECIMAL (10,2))para el mes en curso.
 SUELDO MENSUAL = Antigüedad en años * 1000 + SUMATORIA de (calificación de la exp. * costo base de la tecnología). */
 DELIMITER $$
-CREATE FUNCTION sueldoMensual   (unCuil INT) RETURNS DECIMAL (10,2)
+DROP FUNCTION sueldoMensual $$
+CREATE FUNCTION sueldoMensual   (unCuil INT) RETURNS DECIMAL (10,2) reads sql data
 Begin
     DECLARE resultado DECIMAL (10,2);
 
-    SELECT  TIMESTAMPDIFF(YEAR, Contratacion , CURDATE() ) AS años_transcurridos;
-			TIMESTAMPDIFF(MONTH,Contratacion  , CURDATE() ) AS años_transcurridos;  
+    SELECT  TIMESTAMPDIFF(YEAR, Contratacion , CURDATE() ) AS años_transcurridos			
     FROM    Empleado
     WHERE   idProyecto = unIdProyecto
     AND      BETWEEN cotaInferior AND cotaSuperior;
@@ -117,7 +115,8 @@ END
 /*Realizar el SF costoProyecto que recibe como parámetro un idProyecto y devuelva el costo en DECIMAL (10,2).
 COSTO PROYECTO = SUMATORIA (complejidad del requerimiento * costo base de la tecnología del Requerimiento). */
 DELIMITER $$
-CREATE FUNCTION costoProyecto (unIdProyecto SMALLINT) returns DECIMAL (10,2)
+DROP FUNCTION costoProyecto $$
+CREATE FUNCTION costoProyecto (unIdProyecto SMALLINT) returns DECIMAL (10,2) reads sql data
 
 BEGIN
 	DECLARE costoProyecto decimal (10,2);

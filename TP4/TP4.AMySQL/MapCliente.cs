@@ -13,7 +13,7 @@ public class MapCliente : Mapeador<Cliente>
     public override Cliente ObjetoDesdeFila(DataRow fila)
         => new Cliente
             (
-                razonSocial: fila["Cliente"].ToString(),
+                razonSocial: fila["Cliente"].ToString()!,
                 cuit: Convert.ToInt32(fila["idCliente"])                                
             );
         
