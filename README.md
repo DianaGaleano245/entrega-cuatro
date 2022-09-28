@@ -11,13 +11,13 @@
 
 ## Computación 2022
 
-**Asignatura**: <!-- PSR -->
+**Asignatura**: PSR
 
-**Nombre TP**: <!-- ENTREGA CUATRO -->
+**Nombre TP**: ENTREGA CUATRO
 
-**Apellido y nombre Alumnas**: <!-- Galeano Diana , Torrez jessica e inti irahola -->
+**Apellido y nombre Alumnas**: Galeano Diana , Torrez Jessica e Irahola Inti
 
-**Curso**: <!-- 6º7º-->
+**Curso**: 6º7º
 
 # Título del Proyecto
 

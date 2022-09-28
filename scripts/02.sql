@@ -9,8 +9,7 @@ use SoftwareFactory;
     GRANT INSERT, SELECT, UPDATE(*)
     ON SoftwareFactory.Proyecto TO 'Adminitrador'@'%';
 
-/*PM: desde la red 10.3.45.xxx puede
-Ver todas las tablas.
+/*PM: desde la red 10.3.45.xxx puede ver todas las tablas.
 Insertar (todo) y modificar (la calificación) de las Experiencias.
 Dar de alta Empleados.
 Insertar Requerimientos.
