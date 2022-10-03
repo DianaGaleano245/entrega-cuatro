@@ -13,6 +13,12 @@ namespace TP4
             Cuit = cuit;
             Proyectos = new List<Proyecto>();
         }
+
+        public static void AltaCliente(int v)
+        {
+            throw new NotImplementedException();
+        }
+
         public void AgregarProyecto(Proyecto proyecto)
         {
             Proyectos.Add(proyecto);
