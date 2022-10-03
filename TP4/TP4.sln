@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP4.Core", "TP4.Core\TP4.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP4.AdoMySQL", "TP4.AMySQL\TP4.AdoMySQL.csproj", "{66D0E888-940F-45AD-966B-7C7A0564BD66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tp4.Core.Mvc", "tp4.Core.Mvc\tp4.Core.Mvc.csproj", "{A91CF5DB-902B-4BD2-B3EB-9088454BBEB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{66D0E888-940F-45AD-966B-7C7A0564BD66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D0E888-940F-45AD-966B-7C7A0564BD66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66D0E888-940F-45AD-966B-7C7A0564BD66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A91CF5DB-902B-4BD2-B3EB-9088454BBEB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A91CF5DB-902B-4BD2-B3EB-9088454BBEB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A91CF5DB-902B-4BD2-B3EB-9088454BBEB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A91CF5DB-902B-4BD2-B3EB-9088454BBEB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
