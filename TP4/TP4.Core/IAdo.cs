@@ -9,6 +9,12 @@ namespace TP4
     {
         void altacliente(Cliente cliente);
         List<Cliente> ObtenerClientes();
+
+        void AltaProyecto(Proyecto proyecto);
+        List<Proyecto> ObtenerProyectos();
+
+        void AltaRequerimiento(Requerimineto requerimineto );
+        List<Requerimineto> ObtenerRequerimiento();
     }
 }
 //void AltaRubro(Rubro rubro);
