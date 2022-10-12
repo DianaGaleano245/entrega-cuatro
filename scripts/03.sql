@@ -1,10 +1,7 @@
-
--- //xd``
+ delimiter $$
+ USE softwarefactory $$
+ SELECT 'Creando Triggers' AS 'Estado' $$
 DELIMITER $$
-
-USE softwarefactory $$
-SELECT 'Creando Triggers' AS 'Estado' $$
-
 CREATE TRIGGER befInsertTarea BEFORE INSERT ON tarea
 FOR EACH ROW
 BEGIN
@@ -16,10 +13,7 @@ BEGIN
     END IF;
 END $$
 
-
-
-
-
+DELIMITER $$
 CREATE TRIGGER aftAsignar AFTER INSERT ON empleado
 FOR EACH ROW 
 BEGIN

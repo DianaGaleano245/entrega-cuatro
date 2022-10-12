@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using TP4;
-
 namespace tp4.Core.Mvc.Controllers;
+
 public class ClienteController : Controller
 {
     IAdo _ado;
@@ -19,5 +19,9 @@ public class ClienteController : Controller
         _ado.altacliente(cliente);
         return Redirect(nameof(Index));
     }
-    public ViewResult ListaCliente() => View(Cliente.AltaCliente);
+    public ViewResult ListaCliente() => View(_ado.ObtenerClientes());
+
+
+
+
 }

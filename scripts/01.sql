@@ -1,4 +1,6 @@
-use SoftwareFactory;
+ delimiter $$
+ USE softwarefactory $$
+ SELECT 'spsf' AS 'Estado' $$
 
 /*Realizar los SP para dar de alta todas las tablas, menos la tabla Experiencia*/
 DELIMITER $$
@@ -9,6 +11,7 @@ begin
 					VALUES (unCuil , unNombre , unApellido , unaContratacion);
 end $$
 
+DELIMITER $$
 drop PROCEDURE if exists altaCliente $$
 CREATE PROCEDURE altaCliente(unCuit INT , unaRazonSocial VARCHAR(59))
 begin
@@ -16,6 +19,7 @@ begin
 					VALUES(unCuit , unaRazonSocial);
 end$$
 
+DELIMITER $$
 drop PROCEDURE if exists altaTarea $$
 CREATE PROCEDURE altaTarea(unIdRequerimiento INT , unCuil INT , unInicio DATE , unFin DATE)
 begin
@@ -23,6 +27,7 @@ begin
 					VALUES(unIdRequerimiento , unCuil , unInicio , unFin);
 end $$ 
 
+DELIMITER $$
 drop PROCEDURE if exists altaProyecto $$
 CREATE PROCEDURE altaProyecto(unIdProyecto SMALLINT , unCuit INT , unaDescripcion varchar(200) , unPresupuesto DECIMAL(10,2) , 
 									unInicio DATE , unFinal DATE)
@@ -31,6 +36,7 @@ begin
 					VALUES(unIdProyecto , unCuit , unaDescripcion , unPresupuesto , unInicio , unFinal);
 end$$
 
+DELIMITER $$
 drop PROCEDURE if exists altaRequerimiento $$
 CREATE PROCEDURE altaRequerimiento(unIdRequerimiento INT , unIdProyecto SMALLINT , 
 										unIdTecnologia TINYINT , unaDescripcion VARCHAR (45) , unaComplejidad TINYINT UNSIGNED)
@@ -39,6 +45,7 @@ begin
 					VALUES(unIdRequerimiento , unIdProyecto , unIdTecnologia , unaDescripcion , unaComplejidad);
 end$$
 
+DELETE $$
 drop PROCEDURE if exists altaTecnologia $$
 CREATE PROCEDURE altaTecnologia(unIdTecnologia TINYINT , unaTecnologia VARCHAR(20) , unCostoBase DECIMAL(10,2))
 begin
@@ -84,9 +91,8 @@ end$$
 /*Realizar la SF complejidadPromedio que reciba como parámetro un idProyecto y devuelva un float representando el promedio de  complejidad de los
 requerimientos para el Proyecto pasado por parámetro.*/
 DELIMITER $$
-DROP FUNCTION complejidadPromedio $$ 
-CREATE FUNCTION complejidadPromedio (unidProyecto SMALLINT
-										) RETURNS FLOAT reads sql data
+DROP FUNCTION if exists complejidadPromedio $$ 
+CREATE FUNCTION complejidadPromedio (unidProyecto SMALLINT) RETURNS FLOAT reads sql data
 begin
 		DECLARE Resultado FLOAT;
         
@@ -99,32 +105,34 @@ end $$
 /*Realizar la SF sueldoMensual que en base a un cuil devuelva el sueldo a pagar (DECIMAL (10,2))para el mes en curso.
 SUELDO MENSUAL = Antigüedad en años * 1000 + SUMATORIA de (calificación de la exp. * costo base de la tecnología). */
 DELIMITER $$
-DROP FUNCTION sueldoMensual $$
+DROP FUNCTION if EXISTS sueldoMensual $$
 CREATE FUNCTION sueldoMensual   (unCuil INT) RETURNS DECIMAL (10,2) reads sql data
 Begin
-    DECLARE resultado DECIMAL (10,2);
+    DECLARE sueldoApagar DECIMAL (10,2);
 
-    SELECT  TIMESTAMPDIFF(YEAR, Contratacion , CURDATE() ) AS años_transcurridos			
-    FROM    Empleado
-    WHERE   idProyecto = unIdProyecto
-    AND      BETWEEN cotaInferior AND cotaSuperior;
-    
-    RETURN  resultado;
-END
+    SELECT  TIMESTAMPDIFF(YEAR, contratacion , CURDATE()) * 1000 + sum(calificacion * CostoBase) INTO sueldoApagar
+	from experiencia E
+
+    INNER JOIN empleado EM on E.cuil = EM.cuil
+	INNER JOIN Teconologia T on E.idTecnologia = T.idTecnologia
+	WHERE EM.cuil = unCuil;
+
+    RETURN  sueldoApagar;
+END $$
 
 /*Realizar el SF costoProyecto que recibe como parámetro un idProyecto y devuelva el costo en DECIMAL (10,2).
 COSTO PROYECTO = SUMATORIA (complejidad del requerimiento * costo base de la tecnología del Requerimiento). */
 DELIMITER $$
-DROP FUNCTION costoProyecto $$
+DROP FUNCTION if EXISTS costoProyecto $$
 CREATE FUNCTION costoProyecto (unIdProyecto SMALLINT) returns DECIMAL (10,2) reads sql data
 
 BEGIN
 	DECLARE costoProyecto decimal (10,2);
     
 	SELECT  SUM(Complejidad * CostoBase) into costoProyecto
-	FROM    Requerimiento
-    INNER JOIN Requerimiento , Tecnologia 
-	WHERE	idTecnologia = idRequerimieto;
+	FROM requerimiento R
+    INNER JOIN tecnologia T ON R.idTecnologia = T.idTecnologia 
+	WHERE	idProyecto = unIdProyecto;
     
     RETURN costoProyecto;
 END $$

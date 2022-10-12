@@ -4,9 +4,11 @@ namespace TP4
 {
     public class Cliente
     {
-        public string RazonSocial {get; set;}
-        public int Cuit{get; set;}
-        public List<Proyecto> Proyectos {get; set;}
+        public static string? ado;
+
+        public string RazonSocial { get; set; }
+        public int Cuit { get; set; }
+        public List<Proyecto> Proyectos { get; set; }
         public Cliente(string razonSocial, int cuit)
         {
             RazonSocial = razonSocial;
@@ -22,6 +24,6 @@ namespace TP4
         public void AgregarProyecto(Proyecto proyecto)
         {
             Proyectos.Add(proyecto);
-        } 
+        }
     }
 }

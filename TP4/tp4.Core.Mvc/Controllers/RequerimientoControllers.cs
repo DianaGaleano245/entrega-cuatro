@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using TP4;
 using TP4.Core;
-
 namespace tp4.Core.Mvc.Controllers;
+
 public class RequerimientoController : Controller
 {
     IAdo _ado;

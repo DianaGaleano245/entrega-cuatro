@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS SoftwareFactory;
-CREATE DATABASE SoftwareFactory;
+CREATE DATABASE SoftwareFactory CHARACTER set utf8;
 USE SoftwareFactory;
 
 CREATE TABLE Cliente(

@@ -1,4 +1,4 @@
 SOURCE 00.sql
 SOURCE 01.sql
-SOURCE 02.sql
+-- SOURCE 02.sql
 SOURCE 03.sql 
