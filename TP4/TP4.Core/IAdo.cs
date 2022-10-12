@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TP4.Core;
 
 namespace TP4
 {
@@ -13,8 +14,8 @@ namespace TP4
         void AltaProyecto(Proyecto proyecto);
         List<Proyecto> ObtenerProyectos();
 
-        void AltaRequerimiento(Requerimineto requerimineto );
-        List<Requerimineto> ObtenerRequerimiento();
+        void AltaRequerimiento(Requerimiento requerimiento);
+        List<Requerimiento> ObtenerRequerimiento();
     }
 }
 //void AltaRubro(Rubro rubro);
