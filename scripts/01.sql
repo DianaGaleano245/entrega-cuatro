@@ -17,7 +17,7 @@ CREATE PROCEDURE altaCliente(unCuit INT , unaRazonSocial VARCHAR(59))
 begin
 		INSERT INTO Cliente(Cuit , RazonSocial)
 					VALUES(unCuit , unaRazonSocial);
-end$$
+end $$
 
 DELIMITER $$
 drop PROCEDURE if exists altaTarea $$
@@ -34,7 +34,7 @@ CREATE PROCEDURE altaProyecto(unIdProyecto SMALLINT , unCuit INT , unaDescripcio
 begin
 		INSERT INTO Proyecto(IdProyecto , Cuit , Descripcion , Presupuesto , Inicio , Final)
 					VALUES(unIdProyecto , unCuit , unaDescripcion , unPresupuesto , unInicio , unFinal);
-end$$
+end $$
 
 DELIMITER $$
 drop PROCEDURE if exists altaRequerimiento $$
@@ -43,15 +43,15 @@ CREATE PROCEDURE altaRequerimiento(unIdRequerimiento INT , unIdProyecto SMALLINT
 begin
 		INSERT INTO Requerimiento(IdRequerimiento , IdProyecto , IdTecnologia , Descripcion , Complejidad)
 					VALUES(unIdRequerimiento , unIdProyecto , unIdTecnologia , unaDescripcion , unaComplejidad);
-end$$
+end $$
 
-DELETE $$
+DELIMITER $$
 drop PROCEDURE if exists altaTecnologia $$
 CREATE PROCEDURE altaTecnologia(unIdTecnologia TINYINT , unaTecnologia VARCHAR(20) , unCostoBase DECIMAL(10,2))
 begin
 		INSERT INTO Tecnologia (IdTecnologia , Tecnologia , CostoBase)
 					VALUES(unIdTecnologia , unaTecnologia , unCostoBase);
-end$$
+end $$
 
 /*Realizar el SP asignarExperiencia que recibe como parámetros cuil, idTecnologia y una calificación. 
 El SP tiene que crear un registro en caso de que no exista o actualizarlo en caso de que si exista*/
@@ -86,7 +86,7 @@ begin
 		WHERE   fin is NULL
 		AND IdRequerimiento = unIdRequerimiento
 		AND Cuil = unCuil;
-end$$
+end $$
 
 /*Realizar la SF complejidadPromedio que reciba como parámetro un idProyecto y devuelva un float representando el promedio de  complejidad de los
 requerimientos para el Proyecto pasado por parámetro.*/
@@ -127,14 +127,12 @@ DROP FUNCTION if EXISTS costoProyecto $$
 CREATE FUNCTION costoProyecto (unIdProyecto SMALLINT) returns DECIMAL (10,2) reads sql data
 
 BEGIN
-	DECLARE costoProyecto decimal (10,2);
+	DECLARE costo decimal (10,2);
     
-	SELECT  SUM(Complejidad * CostoBase) into costoProyecto
+	SELECT  SUM(Complejidad * CostoBase) into costo
 	FROM requerimiento R
     INNER JOIN tecnologia T ON R.idTecnologia = T.idTecnologia 
 	WHERE	idProyecto = unIdProyecto;
     
     RETURN costoProyecto;
 END $$
-
-

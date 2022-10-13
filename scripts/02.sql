@@ -1,4 +1,5 @@
--- use SoftwareFactory;
+use softwarefactory;
+SELECT 'Usuarios y permisos' AS 'Estado';
 /*Administrador: puede ver todo desde cualquier lado, dar de alta Proyectos, Tecnologías, Clientes y Empleados. También puede actualizar todo respecto a la tabla Proyecto.*/
     -- DROP USER IF EXISTS 'Adminitrador'@'%';
     -- CREATE USER 'Administrador'@'%' IDENTIFIED BY 'passAdminitrador';
