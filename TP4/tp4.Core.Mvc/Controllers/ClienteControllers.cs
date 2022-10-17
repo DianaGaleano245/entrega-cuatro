@@ -19,6 +19,8 @@ public class ClienteController : Controller
         _ado.altacliente(cliente);
         return Redirect(nameof(Index));
     }
+    [HttpGet]
+
     public ViewResult ListaCliente() => View(_ado.ObtenerClientes());
 
 

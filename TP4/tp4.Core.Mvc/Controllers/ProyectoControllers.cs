@@ -19,5 +19,7 @@ public class ProyectoController : Controller
         _ado.AltaProyecto(proyecto);
         return Redirect(nameof(Index));
     }
-    public ViewResult ListaProyecto() => View(Proyecto.AltaProyecto);
+    [HttpGet]
+
+    public ViewResult ListaProyecto() => View(_ado.ObtenerProyectos());
 }

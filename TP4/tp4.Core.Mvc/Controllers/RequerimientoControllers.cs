@@ -20,5 +20,6 @@ public class RequerimientoController : Controller
         _ado.AltaRequerimiento(requerimiento);
         return Redirect(nameof(Index));
     }
-    public ViewResult ListaRequerimiento() => View(Requerimiento.AltaRequerimiento);
+    [HttpGet]
+    public ViewResult ListaRequerimiento() => View(_ado.ObtenerRequerimiento());
 }
