@@ -5,12 +5,16 @@ DELIMITER $$
 CREATE TRIGGER befInsertTarea BEFORE INSERT ON tarea
 FOR EACH ROW
 BEGIN
-	IF EXISTS SELECT calificacion 
-			FROM experiencia E 
-			INNER JOIN tarea T ON E.cuil = NEW.cuil 
-		SIGNAL SQLSTATE "45000"
-		SET MESSAGE_TEXT = "Calificación insuficiente";
-    END IF;
+	IF EXISTS (SELECT calificacion
+				FROM experiencia E
+				INNER JOIN tarea T)
+	
+	-- IF EXISTS SELECT calificacion 
+	-- 		FROM experiencia E 
+	-- 		INNER JOIN tarea T ON E.cuil = NEW.cuil 
+	-- 	SIGNAL SQLSTATE "45000"
+	-- 	SET MESSAGE_TEXT = "Calificación insuficiente";
+    -- END IF;
 END $$
 
 DELIMITER $$
