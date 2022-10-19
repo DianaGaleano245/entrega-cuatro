@@ -7,15 +7,19 @@ FOR EACH ROW
 BEGIN
 	IF EXISTS (SELECT calificacion
 				FROM experiencia E
-				INNER JOIN tarea T)
+				INNER JOIN tarea T ON E.cuil = NEW.cuil < (SELECT complejidad from requerimiento R INNER JOIN Tarea T ON R.idRequerimiento = NEW.idRequerimiento))
+				THEN SIGNAL SQLSTATE "45000"
+				SET MESSAGE_TEXT = "calificacion insuficiente";
+	END IF;
 	
 	-- IF EXISTS SELECT calificacion 
 	-- 		FROM experiencia E 
-	-- 		INNER JOIN tarea T ON E.cuil = NEW.cuil 
+	--		INNER JOIN tarea T ON E.cuil = NEW.cuil 
 	-- 	SIGNAL SQLSTATE "45000"
 	-- 	SET MESSAGE_TEXT = "Calificación insuficiente";
     -- END IF;
 END $$
+
 
 DELIMITER $$
 CREATE TRIGGER aftAsignar AFTER INSERT ON empleado
