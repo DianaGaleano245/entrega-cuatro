@@ -12,12 +12,6 @@ BEGIN
 				SET MESSAGE_TEXT = "calificacion insuficiente";
 	END IF;
 	
-	-- IF EXISTS SELECT calificacion 
-	-- 		FROM experiencia E 
-	--		INNER JOIN tarea T ON E.cuil = NEW.cuil 
-	-- 	SIGNAL SQLSTATE "45000"
-	-- 	SET MESSAGE_TEXT = "Calificación insuficiente";
-    -- END IF;
 END $$
 
 

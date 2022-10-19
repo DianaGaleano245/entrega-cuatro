@@ -1,7 +1,12 @@
+using et12.edu.ar.AGBD.Ado;
+using TP4.AMySQL;
+using TP4.Core;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<AdoAGBD>(sadoet12 => FactoryAdoAGBD.GetAdoMySQL("appSettings.json", "test"));
+builder.Services.AddTransient<IAdo, >();
 
 var app = builder.Build();
 
