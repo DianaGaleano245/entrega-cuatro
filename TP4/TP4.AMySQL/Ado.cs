@@ -22,7 +22,6 @@ namespace Ado
             
         }
 
-        public void AltaAdo(Cliente cliente) => MapCliente.altaClientes(cliente);
         public List<Ado> ObtenerAdos() => MapCliente.ObtenerClientes();
 
         public void altacliente(Cliente cliente)
