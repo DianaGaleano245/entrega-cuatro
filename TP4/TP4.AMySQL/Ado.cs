@@ -21,12 +21,9 @@ namespace Ado
         {
             
         }
-
-        public List<Ado> ObtenerAdos() => MapCliente.ObtenerClientes();
-
         public void altacliente(Cliente cliente)
         {
-            throw new NotImplementedException();
+            MapCliente.AltaCliente(cliente);
         }
 
         public List<Cliente> ObtenerClientes()
