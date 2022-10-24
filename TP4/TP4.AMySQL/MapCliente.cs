@@ -16,7 +16,16 @@ public class MapCliente : Mapeador<Cliente>
                 razonSocial: fila["Cliente"].ToString()!,
                 cuit: Convert.ToInt32(fila["idCliente"])                                
             );
-        
+
+    internal void altaCliente(Cliente cliente)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal void altaClientes(Cliente cliente)
+    {
+        throw new NotImplementedException();
+    }
 
     public void AltaCliente(Cliente cliente)
         => EjecutarComandoCon("altaCliente", ConfigurarAltaCliente, PostAltaCliente, cliente);
