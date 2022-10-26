@@ -12,10 +12,6 @@ public class AdoSoftware : IAdo
         MapCliente = new MapCliente(Ado);
     }
 
-    public AdoSoftware()
-    {
-
-    }
     public void altacliente(Cliente cliente)
     {
         MapCliente.AltaCliente(cliente);
@@ -23,26 +19,8 @@ public class AdoSoftware : IAdo
 
     public List<Cliente> ObtenerClientes()
     {
-        throw new NotImplementedException();
+        return MapCliente.ColeccionDesdeTabla();
     }
 
-    public void AltaProyecto(Proyecto proyecto)
-    {
-        throw new NotImplementedException();
-    }
 
-    public List<Proyecto> ObtenerProyectos()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void AltaRequerimiento(Requerimiento requerimiento)
-    {
-        throw new NotImplementedException();
-    }
-
-    public List<Requerimiento> ObtenerRequerimiento()
-    {
-        throw new NotImplementedException();
-    }
 }

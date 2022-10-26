@@ -11,11 +11,11 @@ namespace TP4
         void altacliente(Cliente cliente);
         List<Cliente> ObtenerClientes();
 
-        void AltaProyecto(Proyecto proyecto);
-        List<Proyecto> ObtenerProyectos();
+        /* void AltaProyecto(Proyecto proyecto);
+         List<Proyecto> ObtenerProyectos();
 
-        void AltaRequerimiento(Requerimiento requerimiento);
-        List<Requerimiento> ObtenerRequerimiento();
+         void AltaRequerimiento(Requerimiento requerimiento);
+         List<Requerimiento> ObtenerRequerimiento();*/
     }
 }
 //void AltaRubro(Rubro rubro);

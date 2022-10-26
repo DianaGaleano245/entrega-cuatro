@@ -17,9 +17,9 @@ public class RequerimientoController : Controller
 
     public IActionResult RequerimientoForm(Requerimiento requerimiento)
     {
-        _ado.AltaRequerimiento(requerimiento);
+        //_ado.AltaRequerimiento(requerimiento);
         return Redirect(nameof(Index));
     }
     [HttpGet]
-    public ViewResult ListaRequerimiento() => View(_ado.ObtenerRequerimiento());
+    public ViewResult ListaRequerimiento() => View();
 }

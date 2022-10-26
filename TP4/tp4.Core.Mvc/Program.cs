@@ -5,6 +5,7 @@ using TP4.Core;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<AdoAGBD>(sadoet12 => FactoryAdoAGBD.GetAdoMySQL("appSettings.json", "test"));
 builder.Services.AddTransient<AdoSoftware, AdoSoftware>();
 
