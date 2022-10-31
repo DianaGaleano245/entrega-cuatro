@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
 using TP4;
 namespace tp4.Core.Mvc.Controllers;
 
@@ -28,6 +27,7 @@ public class ClienteController : Controller
         return View();
     }
 
+    [HttpPost]
     public IActionResult AltaCliente(Cliente cliente)
     {
         _ado.Altacliente(cliente);
