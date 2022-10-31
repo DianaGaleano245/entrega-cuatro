@@ -21,9 +21,9 @@
             foreach (var cliente in Model)
             {
                 <tr>
-                    <th scope="row"><a asp-action="Detalle" asp-route-Id="@Cliente.Id">@string.Concat(Cliente.Nombre,'(', Cliente.Liga.Nombre,')')</a></th>
-                    <td><a asp-action="Detalle" asp-route-Id="@cliente.Id">Detalle <i class="bi bi-eyeglasses" style="color: black;"></i></a></td>
-                    <td><a asp-action="Modificar" asp-route-Id="@cliente.Id">Modificar <i class="bi bi-pencil-fill" style="color: black;"></i></a></td>
+                    <th scope="row"><a asp-action="Detalle" asp-route-Id="Cliente.Id">@string.Concat(Cliente.Nombre,'(', Cliente.Liga.Nombre,')')</a></th>
+                    <td><a asp-action="Detalle" asp-route-Id="cliente.Id">Detalle <i class="bi bi-eyeglasses" style="color: black;"></i></a></td>
+                    <td><a asp-action="Modificar" asp-route-Id="cliente.Id">Modificar <i class="bi bi-pencil-fill" style="color: black;"></i></a></td>
                 </tr>
             }
         </tbody>
