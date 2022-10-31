@@ -8,8 +8,11 @@ namespace TP4
 {
     public interface IAdo
     {
-        void altacliente(Cliente cliente);
+        void Altacliente(Cliente cliente);
+        
         List<Cliente> ObtenerClientes();
+
+        
 
         /* void AltaProyecto(Proyecto proyecto);
          List<Proyecto> ObtenerProyectos();

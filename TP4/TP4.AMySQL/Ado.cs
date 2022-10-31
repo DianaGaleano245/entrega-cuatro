@@ -12,7 +12,7 @@ public class AdoSoftware : IAdo
         MapCliente = new MapCliente(Ado);
     }
 
-    public void altacliente(Cliente cliente)
+    public void Altacliente(Cliente cliente)
     {
         MapCliente.AltaCliente(cliente);
     }

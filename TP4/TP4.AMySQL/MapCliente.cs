@@ -62,5 +62,5 @@ public class MapCliente : Mapeador<Cliente>
         return ElementoDesdeSP();
     }
 
-    public List<Cliente> ObtenerClientes() => ColeccionDesdeTabla();
+    public List<Cliente> ObtenerCliente() => ColeccionDesdeTabla();
 }
