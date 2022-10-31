@@ -15,10 +15,10 @@ namespace TP4
         
 
         /* void AltaProyecto(Proyecto proyecto);
-         List<Proyecto> ObtenerProyectos();
+        List<Proyecto> ObtenerProyectos();
 
-         void AltaRequerimiento(Requerimiento requerimiento);
-         List<Requerimiento> ObtenerRequerimiento();*/
+        void AltaRequerimiento(Requerimiento requerimiento);
+        List<Requerimiento> ObtenerRequerimiento();*/
     }
 }
 //void AltaRubro(Rubro rubro);
