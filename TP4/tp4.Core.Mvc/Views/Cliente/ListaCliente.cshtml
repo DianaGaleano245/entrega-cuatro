@@ -1,15 +1,38 @@
+@using TP4.Core;
+@model IEnumerable<Cliente> 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Clientes</title>
 </head>
 
 <body>
     <h1>ListaCliente</h1>
+    <table> 
+            <thead>
+                <tr>
+                    <th>
+                        Razon Social 
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Cliente cliente in Model)
+                {
+                    <tr>
+                        @* <td>
+                            <a asp-controller="Cliente" asp-action="Index" asp-route-id= "@cliente.Cuit">@cliente.Cuit</a>
+                        </td> *@
+                        <td>
+                            <a asp-controller="Cliente" asp-action="Index" asp-route-id= "@cliente.Cuit">@cliente.RazonSocial</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+    </table>
+     <a asp-controller="Cliente" asp-action="AltaCliente"><button>Agregar Cliente</button></a>
+
 </body>
 
 </html>

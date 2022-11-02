@@ -4,15 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using TP4.Core;
 
-namespace TP4
+namespace TP4.Core
 {
     public interface IAdo
     {
         void Altacliente(Cliente cliente);
-        
         List<Cliente> ObtenerClientes();
 
-        
+
 
         /* void AltaProyecto(Proyecto proyecto);
         List<Proyecto> ObtenerProyectos();

@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using TP4;
+using TP4.Core;
 namespace tp4.Core.Mvc.Controllers;
 
 public class ClienteController : Controller
@@ -9,19 +9,19 @@ public class ClienteController : Controller
     {
         _ado = ado;
     }
-    public IActionResult Index() => View();
+    // public IActionResult ClienteForm() => View();
 
-    public IActionResult ClienteForm() => View();
+    // public IActionResult ClienteForm(Cliente cliente)
+    // {
+    //     _ado.Altacliente(cliente);
+    //     return Redirect(nameof(Index));
+    // }
 
-    public IActionResult ClienteForm(Cliente cliente)
-    {
-        _ado.Altacliente(cliente);
-        return Redirect(nameof(Index));
-    }
     [HttpGet]
+    public IActionResult Index() => View("ListaCliente",_ado.ObtenerClientes());
 
-    public ViewResult ListaCliente() => View(_ado.ObtenerClientes());
 
+    [HttpGet]
     public IActionResult AltaCliente()
     {
         return View();

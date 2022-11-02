@@ -3,7 +3,7 @@ CREATE DATABASE SoftwareFactory CHARACTER set utf8;
 USE SoftwareFactory;
 
 CREATE TABLE Cliente(
-	cuit INT NOT NULL,
+	cuit INT NOT NULL AUTO_INCREMENT,
 	razonSocial VARCHAR(50),
 	CONSTRAINT PK_Cliente PRIMARY KEY (cuit ASC),
 	CONSTRAINT UQ_Cliente_razonSocial UNIQUE (razonSocial ASC)

@@ -19,7 +19,7 @@ public class AdoSoftware : IAdo
 
     public List<Cliente> ObtenerClientes()
     {
-        return MapCliente.ColeccionDesdeTabla();
+        return MapCliente.ObtenerClientes();
     }
 
 

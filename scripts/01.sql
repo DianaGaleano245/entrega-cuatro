@@ -13,10 +13,11 @@ end $$
 
 DELIMITER $$
 drop PROCEDURE if exists altaCliente $$
-CREATE PROCEDURE altaCliente(unCuit INT , unaRazonSocial VARCHAR(59))
+CREATE PROCEDURE altaCliente(out unCuit INT , unaRazonSocial VARCHAR(59))
 begin
-		INSERT INTO Cliente(Cuit , RazonSocial)
-					VALUES(unCuit , unaRazonSocial);
+		INSERT INTO Cliente(RazonSocial)
+					VALUES(unaRazonSocial);
+		SET unCuit = last_insert_id();
 end $$
 
 DELIMITER $$

@@ -1,5 +1,25 @@
-@model TP4.Cliente;
-@{
+@model TP4.Core.Cliente;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Agregra Cliente</title>
+</head>
+<body>
+    <main>
+        <form asp-action="AltaCliente" method="post">
+            <div asp-validation-summary="All"></div>
+            <div>
+                <label asp-for="RazonSocial" class="form-label">Razon Social</label>
+                <input asp-for="RazonSocial" class="form-control">
+            </div>
+            <div>
+                <button type="submit">Agregrar</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
+@* @{
     ViewData["Title"] = "Alta Cliente";
 }
 
@@ -9,7 +29,7 @@
     if(Model.Count() != 0)
 {
     <h3>Clientes</h3>
-    <br><br>
+    
     <table class="table table-striped">
         <thead>
             <tr>
@@ -29,9 +49,9 @@
         </tbody>
     </table>
     
-}
-else
+} *@
+@* else
 {
     <p>No hay Clientes cargados.</p>
 }
-</div>
+</div> *@

@@ -1,31 +1,21 @@
-﻿using et12.edu.ar.AGBD.Mapeadores;
+﻿using et12.edu.ar.AGBD.Ado;
+using et12.edu.ar.AGBD.Mapeadores;
 using System.Data;
-using et12.edu.ar.AGBD.Ado;
-
 namespace TP4.AdoMySQL;
+using TP4.Core;
+using System;
 
 public class MapCliente : Mapeador<Cliente>
 {
-    public MapCliente(AdoAGBD ado) : base(ado)
-    {
-        Tabla = "Cliente";
-    }
+    public MapCliente(AdoAGBD ado) : base(ado) => Tabla = "Cliente";
+    
+    public List<Cliente> ObtenerClientes() => ColeccionDesdeTabla();
     public override Cliente ObjetoDesdeFila(DataRow fila)
         => new Cliente
-            (
-                razonSocial: fila["Cliente"].ToString()!,
-                cuit: Convert.ToInt32(fila["idCliente"])                                
-            );
-
-    internal void altaCliente(Cliente cliente)
-    {
-        throw new NotImplementedException();
-    }
-
-    internal void altaClientes(Cliente cliente)
-    {
-        throw new NotImplementedException();
-    }
+            {
+                Cuit = Convert.ToInt32(fila["cuit"]),
+                RazonSocial =  fila["razonSocial"].ToString()!
+            };
 
     public void AltaCliente(Cliente cliente)
         => EjecutarComandoCon("altaCliente", ConfigurarAltaCliente, PostAltaCliente, cliente);
@@ -34,21 +24,18 @@ public class MapCliente : Mapeador<Cliente>
     {
         SetComandoSP("altaCliente");
 
-        BP.CrearParametroSalida("unIdCliente")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
-            .AgregarParametro();
+        BP.CrearParametroSalida("unCuit").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).AgregarParametro();
 
-        BP.CrearParametro("unCliente")
+        BP.CrearParametro("unaRazonSocial")
             .SetTipoVarchar(45)
             .SetValor(cliente.RazonSocial)
             .AgregarParametro();
     }
 
     public void PostAltaCliente(Cliente cliente)
-    {
-        var paramIdCliente = GetParametro("unIdCliente");
-        cliente.Cuit = Convert.ToInt32(paramIdCliente.Value);
-    }
+        => cliente.Cuit = Convert.ToInt32(GetParametro("unCuit").Value);
+
+
 
     public Cliente ClientePorId(byte cuit)
     {
@@ -62,5 +49,4 @@ public class MapCliente : Mapeador<Cliente>
         return ElementoDesdeSP();
     }
 
-    public List<Cliente> ObtenerCliente() => ColeccionDesdeTabla();
 }
