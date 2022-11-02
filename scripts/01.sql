@@ -20,6 +20,15 @@ begin
 end $$
 
 DELIMITER $$
+drop PROCEDURE if exists clientePorId $$
+CREATE PROCEDURE clientePorCuit (unCuit INT)
+begin
+	select * 
+	from cliente
+	where cuit = unCuit
+end $$
+
+DELIMITER $$
 drop PROCEDURE if exists altaTarea $$
 CREATE PROCEDURE altaTarea(unIdRequerimiento INT , unCuil INT , unInicio DATE , unFin DATE)
 begin

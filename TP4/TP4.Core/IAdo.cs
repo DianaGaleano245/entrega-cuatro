@@ -10,6 +10,7 @@ namespace TP4.Core
     {
         void Altacliente(Cliente cliente);
         List<Cliente> ObtenerClientes();
+        Cliente ClientePorId(int Cuit);
 
 
 

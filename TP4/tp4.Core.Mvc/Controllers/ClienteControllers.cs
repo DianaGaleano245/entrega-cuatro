@@ -18,7 +18,7 @@ public class ClienteController : Controller
     // }
 
     [HttpGet]
-    public IActionResult Index() => View("ListaCliente",_ado.ObtenerClientes());
+    public IActionResult Index() => View("ListaCliente", _ado.ObtenerClientes());
 
 
     [HttpGet]
@@ -32,6 +32,19 @@ public class ClienteController : Controller
     {
         _ado.Altacliente(cliente);
         return Redirect(nameof(Index));
+    }
+
+    [HttpGet]
+    public IActionResult DetalleCliente(int cuit)
+    {
+        if (cuit == 0)
+            return RedirectToAction(nameof(Index));
+
+        var cliente = _ado.;
+        if (pais is null)
+            return NotFound();
+
+
     }
 
 

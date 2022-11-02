@@ -22,5 +22,9 @@ public class AdoSoftware : IAdo
         return MapCliente.ObtenerClientes();
     }
 
+    public Cliente ClientePorId(int Cuit)
+    {
+        throw new NotImplementedException();
+    }
 
 }
