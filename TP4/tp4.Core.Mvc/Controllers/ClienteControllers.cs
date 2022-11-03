@@ -34,18 +34,20 @@ public class ClienteController : Controller
         return Redirect(nameof(Index));
     }
 
-    // [HttpGet]
-    // public IActionResult DetalleCliente(int cuit)
-    // {
-    //     if (cuit == 0)
-    //         return RedirectToAction(nameof(Index));
+    [HttpGet]
+    public IActionResult Detalle(int cuit)
+    {
+        if (cuit == 0)
+            return RedirectToAction(nameof(Index));
 
-    //     var cliente = _ado.;
-    //     if (pais is null)
-    //         return NotFound();
+        var cliente = _ado.ClientePorCuit(cuit) ;
+        if (cliente is null)
+            return NotFound();
+
+        
 
 
-    // }
+    }   
 
 
 
