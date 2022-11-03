@@ -20,12 +20,12 @@ begin
 end $$
 
 DELIMITER $$
-drop PROCEDURE if exists clientePorId $$
+drop PROCEDURE if exists clientePorCuit $$
 CREATE PROCEDURE clientePorCuit (unCuit INT)
 begin
 	select * 
 	from cliente
-	where cuit = unCuit
+	where cuit = unCuit;
 end $$
 
 DELIMITER $$

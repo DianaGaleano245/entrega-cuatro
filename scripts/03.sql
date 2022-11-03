@@ -1,6 +1,6 @@
-DELIMITER ;
-USE softwarefactory;
-SELECT 'Creando Triggers' AS 'Estado';
+DELIMITER $$
+USE softwarefactory $$
+SELECT 'Creando Triggers' AS 'Estado'$$
 DELIMITER $$
 CREATE TRIGGER befInsertTarea BEFORE INSERT ON tarea
 FOR EACH ROW
