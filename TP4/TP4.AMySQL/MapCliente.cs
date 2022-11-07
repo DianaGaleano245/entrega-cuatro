@@ -37,12 +37,12 @@ public class MapCliente : Mapeador<Cliente>
 
 
 
-    public Cliente ClientePorCuit(byte cuit)
+    public Cliente ClientePorCuit(int cuit)
     {
         SetComandoSP("clientePorCuit");
 
         BP.CrearParametro("unCuit")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Byte)
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
             .SetValor(cuit)
             .AgregarParametro();
 
