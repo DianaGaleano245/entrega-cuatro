@@ -7,17 +7,16 @@ namespace TP4.AdoMySQL;
 public class MapProyecto : Mapeador<Proyecto>
 {
     public MapProyecto(AdoAGBD ado) : base(ado) => Tabla = "Proyecto";
-    public MapCliente mapCliente { get; set; }
-
+    public MapCliente MapCliente { get; set; }
     public MapProyecto(MapCliente mapCliente) : this(mapCliente.AdoAGBD)
     {
-        this.mapCliente = mapCliente;
+        MapCliente = mapCliente;
     }
     public List<Proyecto> ObtenerProyectos() => ColeccionDesdeTabla();
     public override Proyecto ObjetoDesdeFila(DataRow fila)
         => new Proyecto(
             idProyecto: Convert.ToInt16(fila["idProyecto"]),
-            cliente: this.mapCliente.ClientePorCuit(Convert.ToInt32(fila["cuit"])),
+            cliente: MapCliente.ClientePorCuit(Convert.ToInt32(fila["cuit"])),
             descripcion: fila["descripcion"].ToString(),
             presupuesto: Convert.ToDecimal(fila["presupuesto"]),
             inicio: Convert.ToDateTime(fila["inicio"]),

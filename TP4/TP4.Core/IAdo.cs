@@ -8,9 +8,14 @@ namespace TP4.Core
 {
     public interface IAdo
     {
+        //Cliente
         void Altacliente(Cliente cliente);
         List<Cliente> ObtenerClientes();
         Cliente ClientePorCuit(int Cuit);
+        // proyecto
+        void AltaProyecto(Proyecto proyecto);
+        List<Cliente> ObtenerProyectos();
+        Cliente ProyectoPorId(short IdProyecto);
 
 
 
