@@ -1,9 +1,8 @@
 ﻿using et12.edu.ar.AGBD.Ado;
 using et12.edu.ar.AGBD.Mapeadores;
 using System.Data;
-namespace TP4.AdoMySQL;
 using TP4.Core;
-using System;
+namespace TP4.AdoMySQL;
 
 public class MapCliente : Mapeador<Cliente>
 {

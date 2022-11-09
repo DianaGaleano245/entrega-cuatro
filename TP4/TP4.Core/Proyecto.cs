@@ -8,11 +8,11 @@ namespace TP4.Core
         public Cliente Cliente { get; set; }
         public string Descripcion { get; set; }
         public Decimal Presupuesto { get; set; }
-        public DateOnly Inicio { get; set; }
-        public DateOnly Fin { get; set; }
+        public DateTime Inicio { get; set; }
+        public DateTime Fin { get; set; }
 
         public Proyecto(short idProyecto, Cliente cliente, string descripcion,
-        Decimal presupuesto, DateOnly inicio, DateOnly fin)
+        Decimal presupuesto, DateTime inicio, DateTime fin)
         {
             IdProyecto = idProyecto;
             Cliente = cliente;
