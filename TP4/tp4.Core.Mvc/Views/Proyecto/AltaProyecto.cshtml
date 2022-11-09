@@ -1,0 +1,75 @@
+@model TP4.Core.Proyecto;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Agregra Cliente</title>
+</head>
+
+<body>
+    <main>
+        <form asp-action="AltaProyecto" method="post">
+            <div asp-validation-summary="All"></div>
+            <div>
+                <label asp-for="Descripcion" class="form-label">Descripcion</label>
+                <input asp-for="Descripcion" class="form-control">
+
+                <label asp-for="Presupuesto" class="form-label">Presupuesto</label>
+                <input asp-for="Presupuesto" class="form-control">
+
+                <label asp-for="Inicio" class="form-label">Inicio</label>
+                <input asp-for="Inicio" class="form-control">
+
+                <label asp-for="Fin" class="form-label">Fin</label>
+                <input asp-for="Fin" class="form-control">
+
+                <label asp-for="Presupuesto" class="form-label">Presupuesto</label>
+                <input asp-for="Presupuesto" class="form-control">
+            </div>
+            <div>
+                <button type="submit">Agregar</button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
+@* @{
+    ViewData["Title"] = "Alta Cliente";
+    }
+
+    <h1>@ViewData["Title"]</h1>
+
+    <div>
+    if(Model.Count() != 0)
+    {
+    <h3>Clientes</h3>
+
+    <table class="table table-striped">
+    <thead>
+    <tr>
+    <th scope="col">Nombre</th>
+    <th scope="col" colspan="2">Acciones</th>
+    </tr>
+    </thead>
+    <tbody class="">
+    foreach (var cliente in Model)
+    {
+    <tr>
+    <th scope="row"><a asp-action="Detalle" asp-route-Id="Cliente.Id">@string.Concat(Cliente.Nombre,'(',
+    Cliente.Liga.Nombre,')')</a></th>
+    <td><a asp-action="Detalle" asp-route-Id="cliente.Id">Detalle <i class="bi bi-eyeglasses" style="color:
+    black;"></i></a></td>
+    <td><a asp-action="Modificar" asp-route-Id="cliente.Id">Modificar <i class="bi bi-pencil-fill" style="color:
+    black;"></i></a></td>
+    </tr>
+    }
+    </tbody>
+    </table>
+
+    } *@
+@* else
+    {
+    <p>No hay Clientes cargados.</p>
+    }
+    </div> *@
