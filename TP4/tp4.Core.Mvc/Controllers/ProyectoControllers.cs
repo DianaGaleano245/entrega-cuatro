@@ -10,16 +10,20 @@ public class ProyectoController : Controller
     {
         _ado = ado;
     }
-    public IActionResult Index() => View();
+    [HttpGet]
+    public IActionResult Index() => View("ListaProyecto", _ado.ObtenerProyectos());
 
-    public IActionResult ProyectoForm() => View();
 
-    public IActionResult ProyectoForm(Proyecto proyecto)
+    [HttpGet]
+    public IActionResult AltaProyecto()
     {
-        //_ado.AltaProyecto(proyecto);
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult AltaProyecto(Proyecto proyecto)
+    {
+        _ado.AltaProyecto(proyecto);
         return Redirect(nameof(Index));
     }
-    [HttpGet]
-
-    public ViewResult ListaProyecto() => View();
 }

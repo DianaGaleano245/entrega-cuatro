@@ -1,0 +1,64 @@
+@using TP4.Core;
+@model IEnumerable<Proyecto>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Proyectos</title>
+</head>
+
+<body>
+    <h1>Lista Proyecto</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Cliente
+                </th>
+                <th>
+                    Descripcion
+                </th>
+                <th>
+                    Presupuesto
+                </th>
+                <th>
+                    Inicio
+                </th>
+                <th>
+                    Fin
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Proyecto proyecto in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Proyecto" asp-action="Index" asp-route-id="@proyecto.Descripcion">@proyecto.Descripcion</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Proyecto" asp-action="Index" asp-route-id="@proyecto.Presupuesto">@proyecto.Presupuesto</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Proyecto" asp-action="Index" asp-route-id="@proyecto.Inicio">@proyecto.Inicio</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Proyecto" asp-action="Index" asp-route-id="@proyecto.Fin">@proyecto.Fin</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Proyecto" asp-action="Index" asp-route-id="@proyecto.Cliente.Cuit">@proyecto.Cliente.Cuit</a>
+                    </td>
+                    <td>
+                        <a asp-controller="  "asp-actiona=" "><button>Detalle</button></a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <a asp-controller="Cliente" asp-action="AltaCliente"><button>Agregar Cliente</button></a>
+
+</body>
+
+
+</html>

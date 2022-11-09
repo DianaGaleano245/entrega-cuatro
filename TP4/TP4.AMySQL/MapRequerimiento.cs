@@ -63,7 +63,7 @@ public class MapRequerimiento : Mapeador<Requerimiento>
 
     public Requerimiento RequerimientoPorId(int IdRequerimiento)
     {
-        SetComandoSP("RequerimientoPorId");
+        SetComandoSP("requerimientoPorId");
 
         BP.CrearParametro("unIdRequerimiento")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
