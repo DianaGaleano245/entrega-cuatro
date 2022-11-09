@@ -12,11 +12,6 @@ namespace TPAnime.MVC.ViewModels
         public DateTime InicioProyecto { get; set; }
         public DateTime FinProyecto { get; set; }
 
-
-
-        // [Range(1, byte.MaxValue, ErrorMessage = "Seleccionar un Proyecto")]
-        // public short  IdProyecto { get; set; }
-
         [Range(1, byte.MaxValue, ErrorMessage = "Seleccionar un Cliente")]
         public int Cuit { get; set; }
 
@@ -29,16 +24,10 @@ namespace TPAnime.MVC.ViewModels
                                     dataTextField: nameof(Cliente.Cuit),
                                     dataValueField: nameof(Cliente.RazonSocial));
         }
-        public VMProyecto(IEnumerable<Cliente> Clientes, Proyecto proyecto)
+        public VMProyecto(IEnumerable<Cliente> clientes, Proyecto proyecto)
         {
-            // Proyectos = new SelectList(Proyectos,
-            //                         dataTextField: nameof(Proyecto.Cuit),
-            //                         dataValueField: nameof(Proyecto.Presupuesto),
-            //                         dataValueField: nameof(Proyecto.Inicio),
-            //                         dataValueField: nameof(Proyecto.Fin),
-            //                         selectedValue: Proyecto.Id);
 
-            Clientes = new SelectList(Clientes,
+            Clientes = new SelectList(clientes,
                                     dataTextField: nameof(Cliente.Cuit),
                                     dataValueField: nameof(Cliente.RazonSocial),
                                     selectedValue: proyecto.IdProyecto);
@@ -46,6 +35,8 @@ namespace TPAnime.MVC.ViewModels
             PresupuestoProyecto = proyecto.Presupuesto;
             InicioProyecto = proyecto.Inicio;
             FinProyecto = proyecto.Fin;
+            idProyecto = proyecto.IdProyecto;
+
 
         }
 
