@@ -43,6 +43,7 @@ CREATE PROCEDURE altaProyecto(unIdProyecto SMALLINT , unCuit INT , unaDescripcio
 begin
 		INSERT INTO Proyecto(IdProyecto , Cuit , Descripcion , Presupuesto , Inicio , Final)
 					VALUES(unIdProyecto , unCuit , unaDescripcion , unPresupuesto , unInicio , unFinal);
+		SET unIdProyecto = last_insert_id();
 end $$
 
 DELIMITER $$
