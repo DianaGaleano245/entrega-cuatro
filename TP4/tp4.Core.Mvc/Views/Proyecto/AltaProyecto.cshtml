@@ -1,4 +1,5 @@
-@model TP4.Core.Proyecto;
+@using tp4.Core.Mvc.Models;
+@model VM
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,21 +12,29 @@
         <form asp-action="AltaProyecto" method="post">
             <div asp-validation-summary="All"></div>
             <div>
-                <label asp-for="Descripcion" class="form-label">Descripcion</label>
-                <input asp-for="Descripcion" class="form-control">
+                <label asp-for="DescripcionProyecto" class="form-label">Descripcion</label>
+                <input asp-for="DescripcionProyecto" class="form-control">
+
+                <label asp-for="PresupuestoProyecto" class="form-label">Presupuesto</label>
+                <input asp-for="PresupuestoProyecto" class="form-control">
+
+                <label asp-for="InicioProyecto" class="form-label">Inicio</label>
+                <input asp-for="InicioProyecto" class="form-control">
+
+                <label asp-for="FinProyecto" class="form-label">Fin</label>
+                <input asp-for="FinProyecto" class="form-control">
 
                 <label asp-for="Presupuesto" class="form-label">Presupuesto</label>
                 <input asp-for="Presupuesto" class="form-control">
 
-                <label asp-for="Inicio" class="form-label">Inicio</label>
-                <input asp-for="Inicio" class="form-control">
-
-                <label asp-for="Fin" class="form-label">Fin</label>
-                <input asp-for="Fin" class="form-control">
-
-                <label asp-for="Presupuesto" class="form-label">Presupuesto</label>
-                <input asp-for="Presupuesto" class="form-control">
+                <select asp-items="Model.Clientes" asp-for="Cuit" class="form-select">
+                    @if (Model.Cuit == 0)
+                    {
+                        <option selected="selected" value="" disabled>Selecione un Autor</option>
+                    }
+                </select>
             </div>
+
             <div>
                 <button type="submit">Agregar</button>
             </div>

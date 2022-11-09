@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using TP4.Core;
 using Microsoft.AspNetCore.Mvc.Rendering;
-namespace TPAnime.MVC.ViewModels
+namespace tp4.Core.MVC.ViewModels
 {
     public class VMProyecto
     {
