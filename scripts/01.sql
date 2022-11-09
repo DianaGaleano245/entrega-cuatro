@@ -64,6 +64,16 @@ begin
 end $$
 
 DELIMITER $$
+drop PROCEDURE if exists requerimientoPorId $$
+CREATE PROCEDURE requerimientoPorId (unIdRequerimiento INT)
+begin
+	select * 
+	from requerimiento
+	where IdRequerimiento = unIdRequerimiento;
+end $$
+
+
+DELIMITER $$
 drop PROCEDURE if exists altaTecnologia $$
 CREATE PROCEDURE altaTecnologia(unIdTecnologia TINYINT , unaTecnologia VARCHAR(20) , unCostoBase DECIMAL(10,2))
 begin
