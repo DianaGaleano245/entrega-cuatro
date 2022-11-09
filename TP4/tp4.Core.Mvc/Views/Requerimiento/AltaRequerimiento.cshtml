@@ -1,0 +1,18 @@
+@model TP4.Core.Requerimiento;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Agregra Requerimiento</title>
+</head>
+
+<body>
+    <main>
+        <form asp-action="AltaRequerimiento" method="post">
+            <div asp-validation-summary="All"></div>
+            <div>
+                <button type="submit">Agregar</button>
+            </div>
+        </form>
+    </main>
+</body>

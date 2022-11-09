@@ -11,15 +11,20 @@ public class RequerimientoController : Controller
     {
         _ado = ado;
     }
-    public IActionResult Index() => View();
+    [HttpGet]
+    public IActionResult Index() => View("ListaRequerimiento", _ado.ObtenerRequerimiento());
 
-    public IActionResult RequerimientoForm() => View();
 
-    public IActionResult RequerimientoForm(Requerimiento requerimiento)
+    [HttpGet]
+    public IActionResult AltaRequerimiento()
     {
-        //_ado.AltaRequerimiento(requerimiento);
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult AltaRequerimiento(Requerimiento Requerimiento)
+    {
+        _ado.AltaRequerimiento(Requerimiento);
         return Redirect(nameof(Index));
     }
-    [HttpGet]
-    public ViewResult ListaRequerimiento() => View();
 }

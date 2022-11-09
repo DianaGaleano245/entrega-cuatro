@@ -1,14 +1,14 @@
 @using TP4.Core;
-@model IEnumerable<Cliente>
+@model IEnumerable<Requerimiento>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Clientes</title>
+    <title>Requerimiento</title>
 </head>
 
 <body>
-    <h1>Lista Cliente</h1>
+    <h1>Lista Requerimiento</h1>
     <table>
         <thead>
             <tr>
@@ -21,14 +21,16 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (Cliente cliente in Model)
+            @foreach (Requerimiento requerimiento in Model)
             {
                 <tr>
                     <td>
-                        <a asp-controller="Cliente" asp-action="Index" asp-route-id="@cliente.Cuit">@cliente.Cuit</a>
+                        <a asp-controller="Requerimiento" asp-action="Index"
+                        asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.Descripcion</a>
                     </td>
                     <td>
-                        <a asp-controller="Cliente" asp-action="Index" asp-route-id="@cliente.Cuit">@cliente.RazonSocial</a>
+                        <a asp-controller="Requerimiento" asp-action="Index"
+                        asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.Complejidad</a>
                     </td>
                     <td>
                         <a asp-controller="  " asp-actiona=" "><button>Detalle</button></a>
@@ -38,7 +40,7 @@
             }
         </tbody>
     </table>
-    <a asp-controller="Cliente" asp-action="AltaCliente"><button>Agregar Cliente</button></a>
+    <a asp-controller="Requerimiento" asp-action="AltaRequerimiento"><button>Agregar Requerimiento</button></a>
 
 </body>
 
