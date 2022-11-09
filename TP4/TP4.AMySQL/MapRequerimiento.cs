@@ -34,9 +34,14 @@ public class MapRequerimiento : Mapeador<Requerimiento>
             .SetValor(Requerimiento.IdRequerimiento)
             .AgregarParametro();
 
-        BP.CrearParametro("unCuit")
+        BP.CrearParametro("unIdProyecto")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
-            .SetValor(Requerimiento.Cliente.Cuit)
+            .SetValor(Requerimiento.IdRequerimiento)
+            .AgregarParametro();
+
+        BP.CrearParametro("unIdTecnologia")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Decimal)
+            .SetValor(Requerimiento.IdTecnologia)
             .AgregarParametro();
 
         BP.CrearParametro("unaDescripcion")
@@ -44,20 +49,11 @@ public class MapRequerimiento : Mapeador<Requerimiento>
             .SetValor(Requerimiento.Descripcion)
             .AgregarParametro();
 
-        BP.CrearParametro("unPresupuesto")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Decimal)
-            .SetValor(Requerimiento.Presupuesto)
+        BP.CrearParametro("unaComplejidad")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
+            .SetValor(Requerimiento.Complejidad)
             .AgregarParametro();
 
-        BP.CrearParametro("unInicio")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
-            .SetValor(Requerimiento.Inicio)
-            .AgregarParametro();
-
-        BP.CrearParametro("unFinal")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
-            .SetValor(Requerimiento.Fin)
-            .AgregarParametro();
     }
 
     public void PostAltaRequerimiento(Requerimiento Requerimiento)
@@ -65,12 +61,12 @@ public class MapRequerimiento : Mapeador<Requerimiento>
 
 
 
-    public Requerimiento RequerimientoPorId(short IdRequerimiento)
+    public Requerimiento RequerimientoPorId(int IdRequerimiento)
     {
         SetComandoSP("RequerimientoPorId");
 
         BP.CrearParametro("unIdRequerimiento")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
             .SetValor(IdRequerimiento)
             .AgregarParametro();
 
