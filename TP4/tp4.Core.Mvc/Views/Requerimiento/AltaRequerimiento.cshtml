@@ -11,6 +11,22 @@
         <form asp-action="AltaRequerimiento" method="post">
             <div asp-validation-summary="All"></div>
             <div>
+                <label asp-for="Descripcion" class="form-label">Descripcion</label>
+                <input asp-for="Descripcion" class="form-control">
+
+                <label asp-for="Complejidad" class="form-label">Presupuesto</label>
+                <input asp-for="Complejidad" class="form-control">
+
+                <label asp-for="IdTecnologia" class="form-label">Inicio</label>
+                <input asp-for="IdTecnologia" class="form-control">
+
+                <label asp-for="IdRequerimiento" class="form-label">Fin</label>
+                <input asp-for="IdRequerimiento" class="form-control">
+
+                <label asp-for="IdProyecto" class="form-label">Presupuesto</label>
+                <input asp-for="IdProyecto" class="form-control">
+            </div>
+            <div>
                 <button type="submit">Agregar</button>
             </div>
         </form>
