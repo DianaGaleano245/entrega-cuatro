@@ -46,6 +46,15 @@ begin
 end $$
 
 DELIMITER $$
+drop PROCEDURE if exists proyectoPorId $$
+CREATE PROCEDURE proyectoPorId (unIdProyecto INT)
+begin
+	select * 
+	from proyecto
+	where IdProyecto = unIdProyecto;
+end $$
+
+DELIMITER $$
 drop PROCEDURE if exists altaRequerimiento $$
 CREATE PROCEDURE altaRequerimiento(unIdRequerimiento INT , unIdProyecto SMALLINT , 
 										unIdTecnologia TINYINT , unaDescripcion VARCHAR (45) , unaComplejidad TINYINT UNSIGNED)

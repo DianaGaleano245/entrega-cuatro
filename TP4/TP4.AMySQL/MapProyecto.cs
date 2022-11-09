@@ -31,31 +31,34 @@ public class MapProyecto : Mapeador<Proyecto>
     {
         SetComandoSP("altaProyecto");
 
-        BP.CrearParametro("unIdProyecto").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).SetValor(Proyecto.IdProyecto).AgregarParametro();
+        BP.CrearParametro("unIdProyecto")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .SetValor(Proyecto.IdProyecto)
+            .AgregarParametro();
 
         BP.CrearParametro("unCuit")
-            .SetTipoVarchar(45)
-            .SetValor(Proyecto.Cliente)
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+            .SetValor(Proyecto.Cliente.Cuit)
             .AgregarParametro();
 
         BP.CrearParametro("unaDescripcion")
             .SetTipoVarchar(45)
-            .SetValor(Proyecto.Cliente)
+            .SetValor(Proyecto.Descripcion)
             .AgregarParametro();
 
         BP.CrearParametro("unPresupuesto")
-            .SetTipoVarchar(45)
-            .SetValor(Proyecto.Cliente)
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Decimal)
+            .SetValor(Proyecto.Presupuesto)
             .AgregarParametro();
 
         BP.CrearParametro("unInicio")
-            .SetTipoVarchar(45)
-            .SetValor(Proyecto.Cliente)
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
+            .SetValor(Proyecto.Inicio)
             .AgregarParametro();
 
         BP.CrearParametro("unFinal")
-            .SetTipoVarchar(45)
-            .SetValor(Proyecto.Cliente)
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
+            .SetValor(Proyecto.Fin)
             .AgregarParametro();
     }
 
@@ -64,13 +67,13 @@ public class MapProyecto : Mapeador<Proyecto>
 
 
 
-    public Proyecto ProyectoPorCuit(int cuit)
+    public Proyecto ProyectoPorId(short IdProyecto)
     {
-        SetComandoSP("ProyectoPorCuit");
+        SetComandoSP("proyectoPorId");
 
-        BP.CrearParametro("unCuit")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
-            .SetValor(cuit)
+        BP.CrearParametro("unIdProyecto")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+            .SetValor(IdProyecto)
             .AgregarParametro();
 
         return ElementoDesdeSP();
