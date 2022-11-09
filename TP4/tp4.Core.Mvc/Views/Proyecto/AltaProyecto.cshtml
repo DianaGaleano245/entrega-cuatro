@@ -24,9 +24,6 @@
                 <label asp-for="FinProyecto" class="form-label">Fin</label>
                 <input asp-for="FinProyecto" class="form-control">
 
-                <label asp-for="Presupuesto" class="form-label">Presupuesto</label>
-                <input asp-for="Presupuesto" class="form-control">
-
                 <select asp-items="Model.Clientes" asp-for="Cuit" class="form-select">
                     @if (Model.Cuit == 0)
                     {
