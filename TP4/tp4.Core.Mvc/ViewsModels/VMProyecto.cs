@@ -4,43 +4,49 @@ using TP4.Core;
 using Microsoft.AspNetCore.Mvc.Rendering;
 namespace TPAnime.MVC.ViewModels
 {
-    public class VMAnime
+    public class VMProyecto
     {
-        public SelectList? Estudios { get; set; }
+        public SelectList? Clientes { get; set; }
+        public string DescripcionProyecto { get; set; }
+        public Decimal PresupuestoProyecto { get; set; }
+        public DateTime InicioProyecto { get; set; }
+        public DateTime FinProyecto { get; set; }
 
 
-        [Range(1, byte.MaxValue, ErrorMessage = "Seleccionar un estudio")]
-        public byte IdEstudio { get; set; }
 
-        [Range(1, byte.MaxValue, ErrorMessage = "Seleccionar un Autor")]
-        public byte idAutor { get; set; }
-        public VMAnime() { }
-        public VMAnime(IEnumerable<Estudio> estudios, IEnumerable<Autor> autores)
+        // [Range(1, byte.MaxValue, ErrorMessage = "Seleccionar un Proyecto")]
+        // public short  IdProyecto { get; set; }
+
+        [Range(1, byte.MaxValue, ErrorMessage = "Seleccionar un Cliente")]
+        public int Cuit { get; set; }
+
+        public short idProyecto { get; set; }
+
+        public VMProyecto() { }
+        public VMProyecto(IEnumerable<Cliente> clientes)
         {
-            Estudios = new SelectList(estudios,
-                                    dataTextField: nameof(Estudio.Nombre),
-                                    dataValueField: nameof(Estudio.Id));
-            Autores = new SelectList(autores,
-                                    dataTextField: nameof(Autor.Nombre),
-                                    dataValueField: nameof(Autor.Id));
+            Clientes = new SelectList(clientes,
+                                    dataTextField: nameof(Cliente.Cuit),
+                                    dataValueField: nameof(Cliente.RazonSocial));
         }
-        public VMAnime(IEnumerable<Estudio> estudios, IEnumerable<Autor> autores, Anime anime)
+        public VMProyecto(IEnumerable<Cliente> Clientes, Proyecto proyecto)
         {
-            Estudios = new SelectList(estudios,
-                                    dataTextField: nameof(Estudio.Nombre),
-                                    dataValueField: nameof(Estudio.Id),
-                                    selectedValue: anime.Id);
+            // Proyectos = new SelectList(Proyectos,
+            //                         dataTextField: nameof(Proyecto.Cuit),
+            //                         dataValueField: nameof(Proyecto.Presupuesto),
+            //                         dataValueField: nameof(Proyecto.Inicio),
+            //                         dataValueField: nameof(Proyecto.Fin),
+            //                         selectedValue: Proyecto.Id);
 
-            Autores = new SelectList(autores,
-                                    dataTextField: nameof(Autor.Nombre),
-                                    dataValueField: nameof(Autor.Id),
-                                    selectedValue: anime.Id);
-            NombreAnime = anime.Nombre;
-            GeneroAnime = anime.Genero;
-            EpisodiosAnime = anime.Episodios;
-            LanzamientoAnime = anime.Lanzamiento;
-            EstadoAnime = anime.Estado;
-            IdAnime = anime.Id;
+            Clientes = new SelectList(Clientes,
+                                    dataTextField: nameof(Cliente.Cuit),
+                                    dataValueField: nameof(Cliente.RazonSocial),
+                                    selectedValue: proyecto.IdProyecto);
+            DescripcionProyecto = proyecto.Descripcion;
+            PresupuestoProyecto = proyecto.Presupuesto;
+            InicioProyecto = proyecto.Inicio;
+            FinProyecto = proyecto.Fin;
+
         }
 
     }
