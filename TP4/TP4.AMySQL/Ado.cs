@@ -7,11 +7,13 @@ public class AdoSoftware : IAdo
     public AdoAGBD Ado { get; set; }
     public MapCliente MapCliente { get; set; }
     public MapProyecto MapProyecto { get; set; }
+    public MapRequerimiento MapRequerimiento { get; set; }
     public AdoSoftware(AdoAGBD ado)
     {
         Ado = ado;
         MapCliente = new MapCliente(Ado);
         MapProyecto = new MapProyecto(Ado);
+        MapRequerimiento = new MapRequerimiento(Ado);
     }
 
     public void Altacliente(Cliente cliente)
@@ -34,13 +36,28 @@ public class AdoSoftware : IAdo
         MapProyecto.AltaProyecto(proyecto);
     }
 
-    public List<Cliente> ObtenerProyectos()
+    public List<Proyecto> ObtenerProyectos()
     {
         return MapProyecto.ObtenerProyectos();
     }
 
-    public Cliente ProyectoPorId(short IdProyecto)
+    public Proyecto ProyectoPorId(short IdProyecto)
     {
         return MapProyecto.ProyectoPorId(IdProyecto);
+    }
+
+    public void AltaRequerimiento(Requerimiento requerimiento)
+    {
+        MapRequerimiento.AltaRequerimiento(requerimiento);
+    }
+
+    public List<Requerimiento> ObtenerRequerimiento()
+    {
+        return MapRequerimiento.ObtenerRequerimientos();
+    }
+
+    public Requerimiento RequerimientoPorId(int IdRequerimiento)
+    {
+        return MapRequerimiento.RequerimientoPorId(IdRequerimiento);
     }
 }

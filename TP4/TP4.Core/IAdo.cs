@@ -14,8 +14,12 @@ namespace TP4.Core
         Cliente ClientePorCuit(int Cuit);
         // proyecto
         void AltaProyecto(Proyecto proyecto);
-        List<Cliente> ObtenerProyectos();
-        Cliente ProyectoPorId(short IdProyecto);
+        List<Proyecto> ObtenerProyectos();
+        Proyecto ProyectoPorId(short IdProyecto);
+
+        void AltaRequerimiento(Requerimiento requerimiento);
+        List<Requerimiento> ObtenerRequerimiento();
+        Requerimiento RequerimientoPorId(int IdRequerimiento);
 
 
 
