@@ -76,10 +76,10 @@ end $$
 
 DELIMITER $$
 drop PROCEDURE if exists altaTecnologia $$
-CREATE PROCEDURE altaTecnologia(unIdTecnologia TINYINT , unaTecnologia VARCHAR(20) , unCostoBase DECIMAL(10,2))
+CREATE PROCEDURE altaTecnologia(unIdTecnologia TINYINT , unNombre VARCHAR(20) , unCostoBase DECIMAL(10,2))
 begin
-		INSERT INTO Tecnologia (IdTecnologia , Tecnologia , CostoBase)
-					VALUES(unIdTecnologia , unaTecnologia , unCostoBase);
+		INSERT INTO Tecnologia (idTecnologia , tecnologia , costoBase)
+					VALUES(unIdTecnologia , unNombre , unCostoBase);
 end $$
 
 /*Realizar el SP asignarExperiencia que recibe como parámetros cuil, idTecnologia y una calificación. 

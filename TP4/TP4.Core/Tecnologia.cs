@@ -4,7 +4,7 @@ namespace TP4.Core
     {
         public byte IdTecnologia {get; set;}
         public string Nombre {get; set;}
-        public decimal CostaBase {get; set;}
+        public decimal CostoBase {get; set;}
 
         public Tecnologia () {}
 
@@ -12,7 +12,7 @@ namespace TP4.Core
         {
             IdTecnologia = idTecnologia;
             Nombre = nombre;
-            CostaBase = costoBase;
+            CostoBase = costoBase;
         }
     }
 }

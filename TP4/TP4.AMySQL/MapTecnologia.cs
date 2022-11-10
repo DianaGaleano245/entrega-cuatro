@@ -4,19 +4,19 @@ using System.Data;
 using TP4.Core;
 using System.Threading.Tasks;
 
-namespace TP4.AMySQL
+namespace TP4.AMySQL;
+
+public class MapTecnologia : Mapeador<Tecnologia>
 {
-    public class MapTecnologia : Mapeador<Tecnologia>
-    {
         public MapTecnologia(AdoAGBD ado) : base(ado) => Tabla = "Tecnologia";
 
     public List<Tecnologia> ObtenerTecnologias() => ColeccionDesdeTabla();
     public override Tecnologia ObjetoDesdeFila(DataRow fila)
         => new Tecnologia
         {
-            IdTecnologia = Convert.ToByte(fila["IdTecnologia"]),
-            CostoBase = Convert.ToDecimal(fila["CostoBase"]),
-            Nombre = fila["Nombre"].ToString()!
+            IdTecnologia = Convert.ToByte(fila["idTecnologia"]),
+            CostoBase = Convert.ToDecimal(fila["costoBase"]),
+            Nombre = fila["tecnologia"].ToString()!
         };
 
     public void AltaTecnologia(Tecnologia Tecnologia)
@@ -54,6 +54,5 @@ namespace TP4.AMySQL
             .AgregarParametro();
 
         return ElementoDesdeSP();
-    }
     }
 }

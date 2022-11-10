@@ -14,6 +14,7 @@ public class AdoSoftware : IAdo
         Ado = ado;
         MapCliente = new MapCliente(Ado);
         MapRequerimiento = new MapRequerimiento(Ado);
+        MapTecnologia = new MapTecnologia();
         MapProyecto = new MapProyecto(MapCliente);
     }
 
@@ -62,5 +63,20 @@ public class AdoSoftware : IAdo
     public Requerimiento RequerimientoPorId(int IdRequerimiento)
     {
         return MapRequerimiento.RequerimientoPorId(IdRequerimiento);
+    }
+
+    public void AltaTecnologia(Tecnologia tecnologia)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<Tecnologia> ObtenerTecnologia()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Tecnologia TecnologiaPorId(byte idTecnologia)
+    {
+        throw new NotImplementedException();
     }
 }
