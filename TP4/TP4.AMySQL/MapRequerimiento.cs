@@ -31,7 +31,7 @@ public class MapRequerimiento : Mapeador<Requerimiento>
 
         BP.CrearParametro("unIdProyecto")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
-            .SetValor(Requerimiento.IdRequerimiento)
+            .SetValor(Requerimiento.IdProyecto)
             .AgregarParametro();
 
         BP.CrearParametro("unIdTecnologia")
@@ -45,14 +45,14 @@ public class MapRequerimiento : Mapeador<Requerimiento>
             .AgregarParametro();
 
         BP.CrearParametro("unaComplejidad")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Decimal)
             .SetValor(Requerimiento.Complejidad)
             .AgregarParametro();
 
     }
 
     public void PostAltaRequerimiento(Requerimiento Requerimiento)
-        => Requerimiento.IdRequerimiento = Convert.ToInt16(GetParametro("unIdRequerimiento").Value);
+        => Requerimiento.IdRequerimiento = Convert.ToInt32(GetParametro("unIdRequerimiento").Value);
 
 
 

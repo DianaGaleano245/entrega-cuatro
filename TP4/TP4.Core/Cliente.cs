@@ -2,7 +2,7 @@ namespace TP4.Core;
 
 public class Cliente
 {
-    public static string? ado;
+    // public static string? ado;
 
     public string RazonSocial { get; set; }
     public int Cuit { get; set; }
