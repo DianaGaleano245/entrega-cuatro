@@ -12,7 +12,7 @@ public class MapTecnologia : Mapeador<Tecnologia>
     public override Tecnologia ObjetoDesdeFila(DataRow fila)
         => new Tecnologia
         {
-            IdTecnologia = Convert.ToByte(fila["idTecnologia"]),
+            // IdTecnologia = Convert.ToByte(fila["idTecnologia"]),
             CostoBase = Convert.ToDecimal(fila["costoBase"]),
             Nombre = fila["tecnologia"].ToString()!
         };
@@ -24,7 +24,10 @@ public class MapTecnologia : Mapeador<Tecnologia>
     {
         SetComandoSP("altaTecnologia");
 
-        BP.CrearParametro("unIdTecnologia").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).SetValor(Tecnologia.IdTecnologia).AgregarParametro();
+        BP.CrearParametro("unIdTecnologia")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .SetValor(Tecnologia.IdTecnologia)
+            .AgregarParametro();
 
         BP.CrearParametro("unCostoBase")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Decimal)

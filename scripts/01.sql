@@ -80,6 +80,8 @@ CREATE PROCEDURE altaTecnologia(unIdTecnologia TINYINT , unNombre VARCHAR(20) , 
 begin
 		INSERT INTO Tecnologia (idTecnologia , tecnologia , costoBase)
 					VALUES(unIdTecnologia , unNombre , unCostoBase);
+
+			SET unIdTecnologia = last_insert_id();
 end $$
 
 /*Realizar el SP asignarExperiencia que recibe como parámetros cuil, idTecnologia y una calificación. 

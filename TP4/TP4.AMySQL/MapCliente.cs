@@ -23,7 +23,10 @@ public class MapCliente : Mapeador<Cliente>
     {
         SetComandoSP("altaCliente");
 
-        BP.CrearParametro("unCuit").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).SetValor(cliente.Cuit).AgregarParametro();
+        BP.CrearParametro("unCuit")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .SetValor(cliente.Cuit)
+            .AgregarParametro();
 
         BP.CrearParametro("unaRazonSocial")
             .SetTipoVarchar(45)

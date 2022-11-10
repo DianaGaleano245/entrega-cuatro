@@ -1,0 +1,66 @@
+@model TP4.Core.Tecnologia;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Agrega Tecnologia</title>
+</head>
+
+<body>
+    <main>
+        <form asp-action="AltaTecnologia" method="post">
+            <div asp-validation-summary="All"></div>
+            <div>
+                <label asp-for="Nombre" class="form-label">Nombre</label>
+                <input asp-for="Nombre" class="form-control">
+                <label asp-for="CostoBase" class="form-label">Costo Base</label>
+                <input asp-for="CostoBase" class="form-control">
+                <input type="hidden" asp-for="IdTecnologia" />
+            </div>
+            <div>
+                <button type="submit">Agregar</button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
+@* @{
+    ViewData["Title"] = "Alta Cliente";
+    }
+
+    <h1>@ViewData["Title"]</h1>
+
+    <div>
+    if(Model.Count() != 0)
+    {
+    <h3>Clientes</h3>
+
+    <table class="table table-striped">
+    <thead>
+    <tr>
+    <th scope="col">Nombre</th>
+    <th scope="col" colspan="2">Acciones</th>
+    </tr>
+    </thead>
+    <tbody class="">
+    foreach (var cliente in Model)
+    {
+    <tr>
+    <th scope="row"><a asp-action="Detalle" asp-route-Id="Cliente.Id">@string.Concat(Cliente.Nombre,'(',
+    Cliente.Liga.Nombre,')')</a></th>
+    <td><a asp-action="Detalle" asp-route-Id="cliente.Id">Detalle <i class="bi bi-eyeglasses" style="color:
+    black;"></i></a></td>
+    <td><a asp-action="Modificar" asp-route-Id="cliente.Id">Modificar <i class="bi bi-pencil-fill" style="color:
+    black;"></i></a></td>
+    </tr>
+    }
+    </tbody>
+    </table>
+
+    } *@
+@* else
+    {
+    <p>No hay Clientes cargados.</p>
+    }
+    </div> *@
