@@ -1,0 +1,43 @@
+@using TP4.Core;
+@model IEnumerable<Tecnologia>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tecnologia </title>
+</head>
+
+<body>
+    <h1>Lista Tecnologia</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Cuit
+                </th>
+                <th>
+                    Razon Social
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Tecnologia tecnologia in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Tecnologia" asp-action="Index" asp-route-id="@tecnologia.Nombre">@tecnologia.Nombre</a>
+                    </td>
+                    <td>
+                        <a asp-controller="  " asp-actiona=" "><button>Detalle</button></a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <a asp-controller="Tecnologia" asp-action="AltaTecnologia"><button>Agregar Tecnologia</button></a>
+
+</body>
+
+
+</html>

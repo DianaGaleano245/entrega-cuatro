@@ -2,9 +2,7 @@ using et12.edu.ar.AGBD.Ado;
 using et12.edu.ar.AGBD.Mapeadores;
 using System.Data;
 using TP4.Core;
-using System.Threading.Tasks;
-
-namespace TP4.AMySQL;
+namespace TP4.AdoMySQL;
 
 public class MapTecnologia : Mapeador<Tecnologia>
 {
