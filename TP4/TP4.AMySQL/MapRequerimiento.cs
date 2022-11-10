@@ -7,14 +7,22 @@ namespace TP4.AdoMySQL;
 public class MapRequerimiento : Mapeador<Requerimiento>
 {
     public MapRequerimiento(AdoAGBD ado) : base(ado) => Tabla = "Requerimiento";
+    public MapProyecto MapProyecto {get; set;}
+
+    public MapTecnologia MapTecnologia {get; set;}
+    public MapRequerimiento(MapProyecto mapProyecto,MapTecnologia mapTecnologia) : this(mapProyecto.AdoAGBD)
+    {
+        MapProyecto = mapProyecto;
+        MapTecnologia = mapTecnologia;
+    }
     public List<Requerimiento> ObtenerRequerimientos() => ColeccionDesdeTabla();
     public override Requerimiento ObjetoDesdeFila(DataRow fila)
         => new Requerimiento(
-            idRequerimiento: Convert.ToInt32(fila["idRequerimiento"]),
-            idProyecto: Convert.ToInt16(fila["idProyecto"]),
-            descripcion: fila["descripcion"].ToString(),
-            idTecnologia: Convert.ToByte(fila["idTecnologia"]),
-            complejidad: Convert.ToByte(fila["complejidad"])
+            // idRequerimiento: Convert.ToInt32(fila["idRequerimiento"]),
+            proyecto = MapProyecto.ProyectoPorId(Convert.ToInt16(fila["IdProyecto"])),
+            Descripcion: fila["descripcion"].ToString(),
+            Tecnologia: Convert.ToByte(fila["idTecnologia"]),
+            Complejidad: Convert.ToByte(fila["complejidad"])
         );
 
     public void AltaRequerimiento(Requerimiento Requerimiento)

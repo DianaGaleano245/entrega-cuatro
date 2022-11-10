@@ -46,7 +46,7 @@ CREATE TABLE Proyecto(
 );
 
 CREATE TABLE Requerimiento(
-	idRequerimiento INT NOT NULL,
+	idRequerimiento INT NOT NULL AUTO_INCREMENT ,
 	idProyecto SMALLINT NOT NULL,
 	idTecnologia TINYINT NOT NULL,
 	descripcion VARCHAR(45) NOT NULL,

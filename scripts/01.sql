@@ -62,6 +62,7 @@ CREATE PROCEDURE altaRequerimiento(unIdRequerimiento INT , unIdProyecto SMALLINT
 begin
 		INSERT INTO Requerimiento(IdRequerimiento , IdProyecto , IdTecnologia , Descripcion , Complejidad)
 					VALUES(unIdRequerimiento , unIdProyecto , unIdTecnologia , unaDescripcion , unaComplejidad);
+		SET unIdRequerimiento = last_insert_id();
 end $$
 
 DELIMITER $$

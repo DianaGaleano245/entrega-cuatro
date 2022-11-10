@@ -1,4 +1,5 @@
-@model TP4.Core.Requerimiento;
+@using tp4.Core.Mvc.ViewModels;
+@model VMRequerimiento
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,20 +12,30 @@
         <form asp-action="AltaRequerimiento" method="post">
             <div asp-validation-summary="All"></div>
             <div>
-                <label asp-for="IdRequerimiento" class="form-label">IdRequerimiento</label>
-                <input asp-for="IdRequerimiento" class="form-control">
+                @* <label asp-for="IdRequerimiento" class="form-label">IdRequerimiento</label>
+                <input asp-for="IdRequerimiento" class="form-control"> *@
 
-                <label asp-for="Descripcion" class="form-label">Descripcion</label>
-                <input asp-for="Descripcion" class="form-control">
+                <label asp-for="DescripcionRequerimiento" class="form-label">Descripcion</label>
+                <input asp-for="DescripcionRequerimiento" class="form-control">
 
-                <label asp-for="Complejidad" class="form-label">Complejidad</label>
-                <input asp-for="Complejidad" class="form-control">
-
-                <label asp-for="IdTecnologia" class="form-label">IdTecnologia</label>
-                <input asp-for="IdTecnologia" class="form-control">
-
-                <label asp-for="IdProyecto" class="form-label">IdProyecto</label>
-                <input asp-for="IdProyecto" class="form-control">
+                <label asp-for="ComplejidadRequerimiento" class="form-label">Complejidad</label>
+                <input asp-for="ComplejidadRequerimiento" class="form-control">
+                <br>
+                <p>Proyecto:</p>
+                <select asp-items="Model.Proyectos" asp-for="IdProyecto" class="form-select">
+                    @if (Model.IdProyecto == 0)
+                    {
+                        <option selected="selected" value="" disabled>Selecione un Proyecto</option>
+                    }
+                </select>
+                <br>
+                <p>Tecnologia:</p>
+                <select asp-items="Model.Tecnologias" asp-for="IdTecnologia" class="form-select">
+                    @if (Model.IdTecnologia == 0)
+                    {
+                        <option selected="selected" value="" disabled>Selecione una Tecnologia</option>
+                    }
+                </select>
             </div>
             <div>
                 <button type="submit">Agregar</button>
