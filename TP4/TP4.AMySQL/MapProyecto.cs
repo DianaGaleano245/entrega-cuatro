@@ -30,7 +30,7 @@ public class MapProyecto : Mapeador<Proyecto>
     {
         SetComandoSP("altaProyecto");
 
-        BP.CrearParametro("unIdProyecto")
+        BP.CrearParametroSalida("unIdProyecto")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
             .SetValor(Proyecto.IdProyecto)
             .AgregarParametro();
