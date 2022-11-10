@@ -47,6 +47,8 @@ public class AdoSoftware : IAdo
         return MapProyecto.ProyectoPorId(IdProyecto);
     }
 
+
+
     public void AltaRequerimiento(Requerimiento requerimiento)
     {
         MapRequerimiento.AltaRequerimiento(requerimiento);

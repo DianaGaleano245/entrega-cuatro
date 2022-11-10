@@ -7,11 +7,6 @@ namespace TP4.AdoMySQL;
 public class MapRequerimiento : Mapeador<Requerimiento>
 {
     public MapRequerimiento(AdoAGBD ado) : base(ado) => Tabla = "Requerimiento";
-    // public MapCliente MapCliente { get; set; }
-    // public MapRequerimiento(MapCliente mapCliente) : this(mapCliente.AdoAGBD)
-    // {
-    //     MapCliente = mapCliente;
-    // }
     public List<Requerimiento> ObtenerRequerimientos() => ColeccionDesdeTabla();
     public override Requerimiento ObjetoDesdeFila(DataRow fila)
         => new Requerimiento(
