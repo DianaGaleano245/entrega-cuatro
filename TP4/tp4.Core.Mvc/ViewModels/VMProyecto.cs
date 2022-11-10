@@ -14,32 +14,27 @@ namespace tp4.Core.Mvc.ViewModels
 
         [Range(1, byte.MaxValue, ErrorMessage = "Seleccionar un Cliente")]
         public int Cuit { get; set; }
-
         public short idProyecto { get; set; }
 
         public VMProyecto() { }
         public VMProyecto(IEnumerable<Cliente> clientes)
         {
             Clientes = new SelectList(clientes,
-                                    dataTextField: nameof(Cliente.Cuit),
-                                    dataValueField: nameof(Cliente.RazonSocial));
+                                    dataTextField: nameof(Cliente.RazonSocial),
+                                    dataValueField: nameof(Cliente.Cuit));
         }
         public VMProyecto(IEnumerable<Cliente> clientes, Proyecto proyecto)
         {
 
             Clientes = new SelectList(clientes,
-                                    dataTextField: nameof(Cliente.Cuit),
-                                    dataValueField: nameof(Cliente.RazonSocial),
+                                    dataTextField: nameof(Cliente.RazonSocial),
+                                    dataValueField: nameof(Cliente.Cuit),
                                     selectedValue: proyecto.IdProyecto);
             DescripcionProyecto = proyecto.Descripcion;
             PresupuestoProyecto = proyecto.Presupuesto;
             InicioProyecto = proyecto.Inicio;
             FinProyecto = proyecto.Fin;
             idProyecto = proyecto.IdProyecto;
-
-
         }
-
     }
-
 }

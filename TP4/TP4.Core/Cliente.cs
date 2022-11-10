@@ -15,9 +15,4 @@ public class Cliente
         Cuit = cuit;
         //Proyectos = new List<Proyecto>();
     }
-
-    // public void AgregarProyecto(Proyecto proyecto)
-    // {
-    //     // Proyectos.Add(proyecto);
-    // }
 }

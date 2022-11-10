@@ -1,5 +1,6 @@
 using TP4.Core;
 using et12.edu.ar.AGBD.Ado;
+using System;
 
 namespace TP4.AdoMySQL;
 public class AdoSoftware : IAdo
@@ -12,8 +13,8 @@ public class AdoSoftware : IAdo
     {
         Ado = ado;
         MapCliente = new MapCliente(Ado);
-        MapProyecto = new MapProyecto(Ado);
         MapRequerimiento = new MapRequerimiento(Ado);
+        MapProyecto = new MapProyecto(MapCliente);
     }
 
     public void Altacliente(Cliente cliente)

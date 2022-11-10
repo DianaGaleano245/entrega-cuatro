@@ -41,7 +41,7 @@ drop PROCEDURE if exists altaProyecto $$
 CREATE PROCEDURE altaProyecto(unIdProyecto SMALLINT , unCuit INT , unaDescripcion varchar(200) , unPresupuesto DECIMAL(10,2) , 
 									unInicio DATE , unFinal DATE)
 begin
-		INSERT INTO Proyecto(IdProyecto , Cuit , Descripcion , Presupuesto , Inicio , Final)
+		INSERT INTO Proyecto(IdProyecto , Cuit , Descripcion , Presupuesto , Inicio , Fin)
 					VALUES(unIdProyecto , unCuit , unaDescripcion , unPresupuesto , unInicio , unFinal);
 		SET unIdProyecto = last_insert_id();
 end $$

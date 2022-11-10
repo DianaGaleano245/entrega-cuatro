@@ -15,6 +15,7 @@ namespace TP4.Core
         public string Descripcion { get; set; }
         public byte Complejidad { get; set; }
 
+        public Requerimiento() {}
         public Requerimiento(int idRequerimiento, short idProyecto, byte idTecnologia,
         string descripcion, byte complejidad)
         {

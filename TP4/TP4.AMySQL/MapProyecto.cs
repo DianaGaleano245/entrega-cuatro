@@ -2,6 +2,7 @@ using et12.edu.ar.AGBD.Ado;
 using et12.edu.ar.AGBD.Mapeadores;
 using System.Data;
 using TP4.Core;
+using System.Collections.Generic;
 namespace TP4.AdoMySQL;
 
 public class MapProyecto : Mapeador<Proyecto>
@@ -14,14 +15,24 @@ public class MapProyecto : Mapeador<Proyecto>
     }
     public List<Proyecto> ObtenerProyectos() => ColeccionDesdeTabla();
     public override Proyecto ObjetoDesdeFila(DataRow fila)
-        => new Proyecto(
-            idProyecto: Convert.ToInt16(fila["idProyecto"]),
-            cliente: MapCliente.ClientePorCuit(Convert.ToInt32(fila["cuit"])),
-            descripcion: fila["descripcion"].ToString(),
-            presupuesto: Convert.ToDecimal(fila["presupuesto"]),
-            inicio: Convert.ToDateTime(fila["inicio"]),
-            fin: Convert.ToDateTime(fila["fin"])
-        );
+        => new Proyecto()
+        {
+            // IdProyecto = Convert.ToInt16(fila["idProyecto"]),
+            Cliente = MapCliente.ClientePorCuit(Convert.ToInt32(fila["cuit"])),
+            Descripcion = fila["descripcion"].ToString(),
+            Presupuesto = Convert.ToDecimal(fila["presupuesto"]),
+            Inicio = Convert.ToDateTime(fila["inicio"]),
+            Fin = Convert.ToDateTime(fila["fin"]),
+        };
+        // idProyecto: Convert.ToInt16(fila["idProyecto"]),
+        //     cliente: MapCliente.ClientePorCuit(Convert.ToInt32(fila["cuit"])),
+        //     descripcion: fila["descripcion"].ToString(),
+        //     presupuesto: Convert.ToDecimal(fila["presupuesto"]),
+        //     inicio: Convert.ToDateTime(fila["inicio"]),
+        //     fin: Convert.ToDateTime(fila["fin"])
+        // );
+            
+        
 
     public void AltaProyecto(Proyecto Proyecto)
         => EjecutarComandoCon("altaProyecto", ConfigurarAltaProyecto, PostAltaProyecto, Proyecto);
@@ -30,13 +41,13 @@ public class MapProyecto : Mapeador<Proyecto>
     {
         SetComandoSP("altaProyecto");
 
-        BP.CrearParametroSalida("unIdProyecto")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+        BP.CrearParametro("unIdProyecto")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
             .SetValor(Proyecto.IdProyecto)
             .AgregarParametro();
 
         BP.CrearParametro("unCuit")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
             .SetValor(Proyecto.Cliente.Cuit)
             .AgregarParametro();
 

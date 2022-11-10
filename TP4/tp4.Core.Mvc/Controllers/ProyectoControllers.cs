@@ -29,7 +29,7 @@ public class ProyectoController : Controller
         if (vmProyecto.idProyecto == 0)
         {
             var cliente = _ado.ClientePorCuit(vmProyecto.Cuit);
-            var _Proyecto = new Proyecto(vmProyecto.idProyecto!, cliente, vmProyecto.DescripcionProyecto!, vmProyecto.PresupuestoProyecto!,vmProyecto.InicioProyecto!,vmProyecto.FinProyecto!);
+            var _Proyecto = new Proyecto(cliente, vmProyecto.DescripcionProyecto!, vmProyecto.PresupuestoProyecto!,vmProyecto.InicioProyecto!,vmProyecto.FinProyecto!);
             _ado.AltaProyecto(_Proyecto);
         }
 
