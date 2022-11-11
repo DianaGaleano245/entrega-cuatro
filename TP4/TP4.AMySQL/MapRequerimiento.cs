@@ -19,6 +19,7 @@ public class MapRequerimiento : Mapeador<Requerimiento>
     public override Requerimiento ObjetoDesdeFila(DataRow fila)
         => new Requerimiento()
         {
+            IdRequerimiento = Convert.ToInt32(fila["idRequerimiento"]),
             _Proyecto = MapProyecto.ProyectoPorId(Convert.ToInt16(fila["IdProyecto"])),
             Descripcion = fila["descripcion"].ToString(),
             Tecnologia = MapTecnologia.TecnologiaPorId(Convert.ToByte(fila["IdTecnologia"])),

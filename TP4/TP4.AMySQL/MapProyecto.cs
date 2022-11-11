@@ -17,6 +17,7 @@ public class MapProyecto : Mapeador<Proyecto>
     public override Proyecto ObjetoDesdeFila(DataRow fila)
         => new Proyecto()
         {
+            IdProyecto = Convert.ToInt16(fila["idProyecto"]),
             Cliente = MapCliente.ClientePorCuit(Convert.ToInt32(fila["cuit"])),
             Descripcion = fila["descripcion"].ToString(),
             Presupuesto = Convert.ToDecimal(fila["presupuesto"]),

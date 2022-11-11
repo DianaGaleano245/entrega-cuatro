@@ -12,6 +12,7 @@ public class MapTecnologia : Mapeador<Tecnologia>
     public override Tecnologia ObjetoDesdeFila(DataRow fila)
         => new Tecnologia
         {
+            IdTecnologia = Convert.ToByte(fila["idTecnologia"]),
             CostoBase = Convert.ToDecimal(fila["costoBase"]),
             Nombre = fila["tecnologia"].ToString()!
         };
