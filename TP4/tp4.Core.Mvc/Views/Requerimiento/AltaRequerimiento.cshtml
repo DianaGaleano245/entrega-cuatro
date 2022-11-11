@@ -12,14 +12,13 @@
         <form asp-action="AltaRequerimiento" method="post">
             <div asp-validation-summary="All"></div>
             <div>
-                @* <label asp-for="IdRequerimiento" class="form-label">IdRequerimiento</label>
-                <input asp-for="IdRequerimiento" class="form-control"> *@
 
                 <label asp-for="DescripcionRequerimiento" class="form-label">Descripcion</label>
                 <input asp-for="DescripcionRequerimiento" class="form-control">
 
                 <label asp-for="ComplejidadRequerimiento" class="form-label">Complejidad</label>
                 <input asp-for="ComplejidadRequerimiento" class="form-control">
+                <input type="hidden" asp-for="IdRequerimiento" />
                 <br>
                 <p>Proyecto:</p>
                 <select asp-items="Model.Proyectos" asp-for="IdProyecto" class="form-select">

@@ -8,19 +8,19 @@ namespace tp4.Core.Mvc.ViewModels
     {
         public SelectList? Proyectos { get; set; }
         public SelectList? Tecnologias { get; set; }
-
         public string DescripcionRequerimiento { get; set; }
         public byte ComplejidadRequerimiento { get; set; }
+
 
         [Range(1, byte.MaxValue, ErrorMessage = "Seleccionar una Tecnologia")]
         public byte IdTecnologia { get; set; }
 
         [Range(1, byte.MaxValue, ErrorMessage = "Seleccionar un Proyecto")]
-        public short IdProyecto{ get; set; }
+        public short IdProyecto { get; set; }
         public int IdRequerimiento { get; set; }
 
         public VMRequerimiento() { }
-        public VMRequerimiento(IEnumerable<Tecnologia> tecnologias,IEnumerable<Proyecto> proyectos)
+        public VMRequerimiento(IEnumerable<Tecnologia> tecnologias, IEnumerable<Proyecto> proyectos)
         {
             Tecnologias = new SelectList(tecnologias,
                                     dataTextField: nameof(Tecnologia.Nombre),
@@ -29,7 +29,7 @@ namespace tp4.Core.Mvc.ViewModels
                                     dataTextField: nameof(Proyecto.Descripcion),
                                     dataValueField: nameof(Proyecto.IdProyecto));
         }
-        public VMRequerimiento(IEnumerable<Tecnologia> tecnologias,IEnumerable<Proyecto> proyectos, Requerimiento requerimiento)
+        public VMRequerimiento(IEnumerable<Tecnologia> tecnologias, IEnumerable<Proyecto> proyectos, Requerimiento requerimiento)
         {
 
             Tecnologias = new SelectList(tecnologias,

@@ -13,10 +13,16 @@
         <thead>
             <tr>
                 <th>
-                    Cuit
+                    Descripcion
                 </th>
                 <th>
-                    Razon Social
+                    Complejidad
+                </th>
+                <th>
+                    Descripcion de Proyecto
+                </th>
+                <th>
+                    tecnologia
                 </th>
             </tr>
         </thead>
@@ -24,18 +30,10 @@
             @foreach (Requerimiento requerimiento in Model)
             {
                 <tr>
-                    <td>
+                    @* <td>
                         <a asp-controller="Requerimiento" asp-action="Index"
                         asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.IdRequerimiento</a>
-                    </td>
-                    <td>
-                        <a asp-controller="Requerimiento" asp-action="Index"
-                        asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.IdProyecto</a>
-                    </td>
-                    <td>
-                        <a asp-controller="Requerimiento" asp-action="Index"
-                        asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.IdTecnologia</a>
-                    </td>
+                        </td> *@
                     <td>
                         <a asp-controller="Requerimiento" asp-action="Index"
                         asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.Descripcion</a>
@@ -43,6 +41,14 @@
                     <td>
                         <a asp-controller="Requerimiento" asp-action="Index"
                         asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.Complejidad</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Requerimiento" asp-action="Index"
+                        asp-route-id="@requerimiento._Proyecto.Descripcion">@requerimiento._Proyecto.Descripcion</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Requerimiento" asp-action="Index"
+                        asp-route-id="@requerimiento.Tecnologia.Nombre">@requerimiento.Tecnologia.Nombre</a>
                     </td>
                     <td>
                         <a asp-controller="  " asp-actiona=" "><button>Detalle</button></a>

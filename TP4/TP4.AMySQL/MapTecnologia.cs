@@ -6,13 +6,12 @@ namespace TP4.AdoMySQL;
 
 public class MapTecnologia : Mapeador<Tecnologia>
 {
-        public MapTecnologia(AdoAGBD ado) : base(ado) => Tabla = "Tecnologia";
+    public MapTecnologia(AdoAGBD ado) : base(ado) => Tabla = "Tecnologia";
 
     public List<Tecnologia> ObtenerTecnologias() => ColeccionDesdeTabla();
     public override Tecnologia ObjetoDesdeFila(DataRow fila)
         => new Tecnologia
         {
-            // IdTecnologia = Convert.ToByte(fila["idTecnologia"]),
             CostoBase = Convert.ToDecimal(fila["costoBase"]),
             Nombre = fila["tecnologia"].ToString()!
         };
@@ -25,7 +24,7 @@ public class MapTecnologia : Mapeador<Tecnologia>
         SetComandoSP("altaTecnologia");
 
         BP.CrearParametro("unIdTecnologia")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Byte)
             .SetValor(Tecnologia.IdTecnologia)
             .AgregarParametro();
 

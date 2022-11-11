@@ -7,23 +7,23 @@ namespace TP4.AdoMySQL;
 public class MapRequerimiento : Mapeador<Requerimiento>
 {
     public MapRequerimiento(AdoAGBD ado) : base(ado) => Tabla = "Requerimiento";
-    public MapProyecto MapProyecto {get; set;}
+    public MapProyecto MapProyecto { get; set; }
 
-    public MapTecnologia MapTecnologia {get; set;}
-    public MapRequerimiento(MapProyecto mapProyecto,MapTecnologia mapTecnologia) : this(mapProyecto.AdoAGBD)
+    public MapTecnologia MapTecnologia { get; set; }
+    public MapRequerimiento(MapProyecto mapProyecto, MapTecnologia mapTecnologia) : this(mapProyecto.AdoAGBD)
     {
         MapProyecto = mapProyecto;
         MapTecnologia = mapTecnologia;
     }
     public List<Requerimiento> ObtenerRequerimientos() => ColeccionDesdeTabla();
     public override Requerimiento ObjetoDesdeFila(DataRow fila)
-        => new Requerimiento(
-            // idRequerimiento: Convert.ToInt32(fila["idRequerimiento"]),
-            proyecto = MapProyecto.ProyectoPorId(Convert.ToInt16(fila["IdProyecto"])),
-            Descripcion: fila["descripcion"].ToString(),
-            Tecnologia: Convert.ToByte(fila["idTecnologia"]),
-            Complejidad: Convert.ToByte(fila["complejidad"])
-        );
+        => new Requerimiento()
+        {
+            _Proyecto = MapProyecto.ProyectoPorId(Convert.ToInt16(fila["IdProyecto"])),
+            Descripcion = fila["descripcion"].ToString(),
+            Tecnologia = MapTecnologia.TecnologiaPorId(Convert.ToByte(fila["IdTecnologia"])),
+            Complejidad = Convert.ToByte(fila["complejidad"])
+        };
 
     public void AltaRequerimiento(Requerimiento Requerimiento)
         => EjecutarComandoCon("altaRequerimiento", ConfigurarAltaRequerimiento, PostAltaRequerimiento, Requerimiento);
@@ -39,12 +39,12 @@ public class MapRequerimiento : Mapeador<Requerimiento>
 
         BP.CrearParametro("unIdProyecto")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
-            .SetValor(Requerimiento.IdProyecto)
+            .SetValor(Requerimiento._Proyecto.IdProyecto)
             .AgregarParametro();
 
         BP.CrearParametro("unIdTecnologia")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Decimal)
-            .SetValor(Requerimiento.IdTecnologia)
+            .SetValor(Requerimiento.Tecnologia.IdTecnologia)
             .AgregarParametro();
 
         BP.CrearParametro("unaDescripcion")

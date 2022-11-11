@@ -47,8 +47,8 @@ CREATE TABLE Proyecto(
 
 CREATE TABLE Requerimiento(
 	idRequerimiento INT NOT NULL AUTO_INCREMENT ,
-	idProyecto SMALLINT NOT NULL,
-	idTecnologia TINYINT NOT NULL,
+	IdProyecto SMALLINT NOT NULL,
+	IdTecnologia TINYINT NOT NULL,
 	descripcion VARCHAR(45) NOT NULL,
 	complejidad TINYINT UNSIGNED NOT NULL,
 	CONSTRAINT PK_Requerimiento PRIMARY KEY (idRequerimiento ASC),

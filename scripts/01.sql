@@ -79,10 +79,18 @@ DELIMITER $$
 drop PROCEDURE if exists altaTecnologia $$
 CREATE PROCEDURE altaTecnologia(unIdTecnologia TINYINT , unNombre VARCHAR(20) , unCostoBase DECIMAL(10,2))
 begin
-		INSERT INTO Tecnologia (idTecnologia , tecnologia , costoBase)
-					VALUES(unIdTecnologia , unNombre , unCostoBase);
+		INSERT INTO Tecnologia (tecnologia , costoBase)
+					VALUES( unNombre , unCostoBase);
+		SET unIdTecnologia = last_insert_id();
+end $$
 
-			SET unIdTecnologia = last_insert_id();
+DELIMITER $$
+drop PROCEDURE if exists TecnologiaPorId $$
+CREATE PROCEDURE TecnologiaPorId (unIdTecnologia TINYINT)
+begin
+	select * 
+	from tecnologia
+	where IdTecnologia = unIdTecnologia;
 end $$
 
 /*Realizar el SP asignarExperiencia que recibe como parámetros cuil, idTecnologia y una calificación. 

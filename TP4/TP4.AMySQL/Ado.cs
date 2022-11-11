@@ -8,15 +8,16 @@ public class AdoSoftware : IAdo
     public AdoAGBD Ado { get; set; }
     public MapCliente MapCliente { get; set; }
     public MapProyecto MapProyecto { get; set; }
-    public MapTecnologia MapTecnologia {get; set; }
+    public MapTecnologia MapTecnologia { get; set; }
     public MapRequerimiento MapRequerimiento { get; set; }
     public AdoSoftware(AdoAGBD ado)
     {
         Ado = ado;
         MapCliente = new MapCliente(Ado);
-        MapRequerimiento = new MapRequerimiento(Ado);
         MapTecnologia = new MapTecnologia(Ado);
         MapProyecto = new MapProyecto(MapCliente);
+        MapRequerimiento = new MapRequerimiento(MapProyecto, MapTecnologia);
+
     }
 
     public void Altacliente(Cliente cliente)
@@ -68,7 +69,7 @@ public class AdoSoftware : IAdo
 
     public void AltaTecnologia(Tecnologia tecnologia)
     {
-        MapTecnologia.AltaTecnologia (tecnologia);
+        MapTecnologia.AltaTecnologia(tecnologia);
     }
 
     public List<Tecnologia> ObtenerTecnologia()
