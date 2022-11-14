@@ -29,7 +29,7 @@ public class ClienteController : Controller
     [HttpGet]
     public IActionResult Detalle (Cliente cliente)
     {
-        
+        return View(_ado.ProyectosDelCliente(cliente));
     }
 
 

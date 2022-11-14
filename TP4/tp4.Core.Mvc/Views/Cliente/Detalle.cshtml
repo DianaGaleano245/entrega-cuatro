@@ -1,5 +1,5 @@
 @using TP4.Core;
-@model IEnumerable<Cliente>
+@model IEnumerable<Proyecto>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +7,35 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>detalle Cliente</h1>
+    <h1>Lista Proyecto</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Descripcion
+                </th>
+                <th>
+                    Presupuesto
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Proyecto proyecto in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Proyecto" asp-action="Index"
+                        asp-route-id="@proyecto.Descripcion">@proyecto.Descripcion</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Proyecto" asp-action="Index"
+                        asp-route-id="@proyecto.Presupuesto">@proyecto.Presupuesto</a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
     
 </body>
 </html>
