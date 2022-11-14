@@ -30,10 +30,7 @@
             @foreach (Requerimiento requerimiento in Model)
             {
                 <tr>
-                    @* <td>
-                        <a asp-controller="Requerimiento" asp-action="Index"
-                        asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.IdRequerimiento</a>
-                        </td> *@
+                
                     <td>
                         <a asp-controller="Requerimiento" asp-action="Index"
                         asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.Descripcion</a>
@@ -58,7 +55,6 @@
             }
         </tbody>
     </table>
-    @* <a asp-controller="Requerimiento" asp-action="AltaRequerimiento"><button>Agregar Requerimiento</button></a> *@
 
 </body>
 

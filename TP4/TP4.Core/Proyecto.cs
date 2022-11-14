@@ -2,7 +2,6 @@ namespace TP4.Core
 {
     public class Proyecto
     {
-        // public static string? AltaProyecto;
 
         public short IdProyecto { get; set; }
         public Cliente Cliente { get; set; }
@@ -14,7 +13,6 @@ namespace TP4.Core
         public Proyecto() {}
         public Proyecto(Cliente cliente, string descripcion, Decimal presupuesto, DateTime inicio, DateTime fin)
         {
-            // IdProyecto = idProyecto;
             Cliente = cliente;
             Descripcion = descripcion;
             Presupuesto = presupuesto;

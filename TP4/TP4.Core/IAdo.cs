@@ -26,13 +26,6 @@ namespace TP4.Core
         Tecnologia TecnologiaPorId(byte idTecnologia);
 
 
-
-        /* void AltaProyecto(Proyecto proyecto);
-        List<Proyecto> ObtenerProyectos();
-
-        void AltaRequerimiento(Requerimiento requerimiento);
-        List<Requerimiento> ObtenerRequerimiento();*/
     }
 }
-//void AltaRubro(Rubro rubro);
-//        List<Rubro> ObtenerRubros();
+
