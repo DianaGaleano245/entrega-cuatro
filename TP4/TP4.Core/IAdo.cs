@@ -12,6 +12,8 @@ namespace TP4.Core
         void Altacliente(Cliente cliente);
         List<Cliente> ObtenerClientes();
         Cliente ClientePorCuit(int Cuit);
+
+        List<Proyecto> ProyectosDelCliente(Cliente cliente);
         // proyecto
         void AltaProyecto(Proyecto proyecto);
         List<Proyecto> ObtenerProyectos();

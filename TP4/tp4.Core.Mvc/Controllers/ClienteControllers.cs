@@ -26,6 +26,11 @@ public class ClienteController : Controller
         _ado.Altacliente(cliente);
         return Redirect(nameof(Index));
     }
+    [HttpGet]
+    public IActionResult Detalle (Cliente cliente)
+    {
+        
+    }
 
 
 

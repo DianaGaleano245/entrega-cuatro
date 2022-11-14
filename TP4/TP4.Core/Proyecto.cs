@@ -19,6 +19,7 @@ namespace TP4.Core
             Inicio = inicio;
             Fin = fin;
         }
+        
     }
 
 }
