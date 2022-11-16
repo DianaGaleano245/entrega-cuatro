@@ -90,7 +90,8 @@ public class AdoSoftware : IAdo
         return MapRequerimiento.FilasFiltradas("idTecnologia", idTecnologia);
     }
 
-
-
-
+    public List<Requerimiento> RequerimientosDelProyecto(short IdProyecto)
+    {
+        return MapRequerimiento.FilasFiltradas("IdProyecto",IdProyecto);
+    }
 }

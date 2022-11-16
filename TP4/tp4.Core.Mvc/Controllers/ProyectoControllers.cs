@@ -35,11 +35,19 @@ public class ProyectoController : Controller
 
         return Redirect(nameof(Index));
     }
-    public IActionResult Detalle(short IdProyecto)
+    // public IActionResult Detalle(short IdProyecto)
+    // {
+    //     var ProyectoGuardado = _ado.ProyectoPorId(IdProyecto);
+    //     return View("Detalle",ProyectoGuardado );
+    // }
+     public IActionResult Detalle(short IdProyecto)
     {
-        var ProyectoGuardado = _ado.ProyectoPorId(IdProyecto);
-        return View("Detalle",ProyectoGuardado );
+        if (IdProyecto == 0)
+        {
+            return RedirectToAction(nameof(Index));
+        }
+        var RequerimietoProyecto = _ado.ProyectosDelCliente(IdProyecto);
+        return View("Detalle",RequerimietoProyecto );
     }
-
 
 }
