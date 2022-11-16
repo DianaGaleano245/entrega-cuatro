@@ -19,10 +19,12 @@ namespace TP4.Core
         List<Proyecto> ObtenerProyectos();
         Proyecto ProyectoPorId(short IdProyecto);
 
+        //Requerimiento
         void AltaRequerimiento(Requerimiento requerimiento);
         List<Requerimiento> ObtenerRequerimiento();
         Requerimiento RequerimientoPorId(int IdRequerimiento);
 
+        //Tecnologia
         void AltaTecnologia(Tecnologia tecnologia);
         List<Tecnologia> ObtenerTecnologia();
         Tecnologia TecnologiaPorId(byte idTecnologia);
