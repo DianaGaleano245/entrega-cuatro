@@ -8,7 +8,7 @@ public class MapTecnologia : Mapeador<Tecnologia>
 {
     public MapTecnologia(AdoAGBD ado) : base(ado) => Tabla = "Tecnologia";
 
-    public List<Tecnologia> ObtenerTecnologias() => ColeccionDesdeTabla();
+    public async Task<List<Tecnologia>> ObtenerTecnologiasAsync() => await ColeccionDesdeTablaAsync();
     public override Tecnologia ObjetoDesdeFila(DataRow fila)
         => new Tecnologia
         {
@@ -17,8 +17,8 @@ public class MapTecnologia : Mapeador<Tecnologia>
             Nombre = fila["tecnologia"].ToString()!
         };
 
-    public void AltaTecnologia(Tecnologia Tecnologia)
-        => EjecutarComandoCon("altaTecnologia", ConfigurarAltaTecnologia, PostAltaTecnologia, Tecnologia);
+    public async Task AltaTecnologiaAsync(Tecnologia Tecnologia)
+        => await EjecutarComandoAsync("altaTecnologia", ConfigurarAltaTecnologia, PostAltaTecnologia, Tecnologia);
 
     public void ConfigurarAltaTecnologia(Tecnologia Tecnologia)
     {

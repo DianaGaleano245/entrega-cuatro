@@ -13,7 +13,7 @@ public class MapProyecto : Mapeador<Proyecto>
     {
         MapCliente = mapCliente;
     }
-    public List<Proyecto> ObtenerProyectos() => ColeccionDesdeTabla();
+    public async Task<List<Proyecto>> ObtenerProyectosAsync() => await ColeccionDesdeTablaAsync();
     public override Proyecto ObjetoDesdeFila(DataRow fila)
         => new Proyecto()
         {
@@ -26,8 +26,8 @@ public class MapProyecto : Mapeador<Proyecto>
         };
 
 
-    public void AltaProyecto(Proyecto Proyecto)
-        => EjecutarComandoCon("altaProyecto", ConfigurarAltaProyecto, PostAltaProyecto, Proyecto);
+    public async Task AltaProyectoAsync(Proyecto Proyecto)
+        => await EjecutarComandoAsync("altaProyecto", ConfigurarAltaProyecto, PostAltaProyecto, Proyecto);
 
     public void ConfigurarAltaProyecto(Proyecto Proyecto)
     {

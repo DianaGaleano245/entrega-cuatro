@@ -20,14 +20,13 @@ public class AdoSoftware : IAdo
 
     }
 
-    public void Altacliente(Cliente cliente)
-    {
-        MapCliente.AltaCliente(cliente);
-    }
+    public async Task Altacliente(Cliente cliente)
+    => MapCliente.AltaClienteAsync(cliente);
 
-    public List<Cliente> ObtenerClientes()
+
+    public async Task<List<Cliente>> ObtenerClientesAsync()
     {
-        return MapCliente.ObtenerClientes();
+        return await MapCliente.ObtenerClientesAsync();
     }
 
     public Cliente ClientePorCuit(int cuit)
@@ -35,14 +34,14 @@ public class AdoSoftware : IAdo
         return MapCliente.ClientePorCuit(cuit);
     }
 
-    public void AltaProyecto(Proyecto proyecto)
+    public async Task AltaProyectoAsync(Proyecto proyecto)
     {
-        MapProyecto.AltaProyecto(proyecto);
+        await MapProyecto.AltaProyectoAsync(proyecto);
     }
 
-    public List<Proyecto> ObtenerProyectos()
+    public async Task<List<Proyecto>> ObtenerProyectosAsync()
     {
-        return MapProyecto.ObtenerProyectos();
+        return await MapProyecto.ObtenerProyectosAsync();
     }
 
     public Proyecto ProyectoPorId(short IdProyecto)
@@ -50,11 +49,9 @@ public class AdoSoftware : IAdo
         return MapProyecto.ProyectoPorId(IdProyecto);
     }
 
-
-
-    public void AltaRequerimiento(Requerimiento requerimiento)
+    public async Task AltaRequerimientoAsync(Requerimiento requerimiento)
     {
-        MapRequerimiento.AltaRequerimiento(requerimiento);
+        await MapRequerimiento.AltaRequerimientoAsync(requerimiento);
     }
 
     public List<Requerimiento> ObtenerRequerimiento()
@@ -62,14 +59,14 @@ public class AdoSoftware : IAdo
         return MapRequerimiento.ObtenerRequerimientos();
     }
 
-    public Requerimiento RequerimientoPorId(int IdRequerimiento)
+    public async Task<Requerimiento> RequerimientoPorIdAsync(int IdRequerimiento)
     {
-        return MapRequerimiento.RequerimientoPorId(IdRequerimiento);
+        return await MapRequerimiento.RequerimientoPorIdAsync(IdRequerimiento);
     }
 
-    public void AltaTecnologia(Tecnologia tecnologia)
+    public async Task AltaTecnologiaAsync(Tecnologia tecnologia)
     {
-        MapTecnologia.AltaTecnologia(tecnologia);
+        await MapTecnologia.AltaTecnologiaAsync(tecnologia);
     }
 
     public List<Tecnologia> ObtenerTecnologia()

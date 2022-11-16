@@ -15,7 +15,7 @@ public class MapRequerimiento : Mapeador<Requerimiento>
         MapProyecto = mapProyecto;
         MapTecnologia = mapTecnologia;
     }
-    public List<Requerimiento> ObtenerRequerimientos() => ColeccionDesdeTabla();
+    public async Task<List<Requerimiento>> ObtenerRequerimientosAsync() => await ColeccionDesdeTablaAsync();
     public override Requerimiento ObjetoDesdeFila(DataRow fila)
         => new Requerimiento()
         {
@@ -26,8 +26,8 @@ public class MapRequerimiento : Mapeador<Requerimiento>
             Complejidad = Convert.ToByte(fila["complejidad"])
         };
 
-    public void AltaRequerimiento(Requerimiento Requerimiento)
-        => EjecutarComandoCon("altaRequerimiento", ConfigurarAltaRequerimiento, PostAltaRequerimiento, Requerimiento);
+    public async Task AltaRequerimientoAsync(Requerimiento Requerimiento)
+        => await EjecutarComandoAsync("altaRequerimiento", ConfigurarAltaRequerimiento, PostAltaRequerimiento, Requerimiento);
 
     public void ConfigurarAltaRequerimiento(Requerimiento Requerimiento)
     {
@@ -65,7 +65,7 @@ public class MapRequerimiento : Mapeador<Requerimiento>
 
 
 
-    public Requerimiento RequerimientoPorId(int IdRequerimiento)
+    public async Task<Requerimiento> RequerimientoPorIdAsync(int IdRequerimiento)
     {
         SetComandoSP("requerimientoPorId");
 
@@ -74,7 +74,7 @@ public class MapRequerimiento : Mapeador<Requerimiento>
             .SetValor(IdRequerimiento)
             .AgregarParametro();
 
-        return ElementoDesdeSP();
+        return await ElementoDesdeSPAsync();
     }
 
 }
