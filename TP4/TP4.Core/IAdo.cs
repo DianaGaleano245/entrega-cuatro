@@ -9,28 +9,28 @@ namespace TP4.Core
     public interface IAdo
     {
         //Cliente
-        void Altacliente(Cliente cliente);
-        List<Cliente> ObtenerClientes();
+        Task AltaclienteAsync(Cliente cliente);
+        Task<List<Cliente>> ObtenerClientesAsync();
         Cliente ClientePorCuit(int Cuit);
 
-        List<Proyecto> ProyectosDelCliente(int Cuit);
+        Task<List<Proyecto>> ProyectosDelClienteAsync(int Cuit);
         // proyecto
-        void AltaProyecto(Proyecto proyecto);
-        List<Proyecto> ObtenerProyectos();
+        Task AltaProyectoAsync(Proyecto proyecto);
+        Task<List<Proyecto>> ObtenerProyectosAsync();
         Proyecto ProyectoPorId(short IdProyecto);
 
         //Requerimiento
-        void AltaRequerimiento(Requerimiento requerimiento);
-        List<Requerimiento> ObtenerRequerimiento();
-        Requerimiento RequerimientoPorId(int IdRequerimiento);
+        Task AltaRequerimientoAsync(Requerimiento requerimiento);
+        Task<List<Requerimiento>> ObtenerRequerimientoAsync();
+        Task<Requerimiento> RequerimientoPorIdAsync(int IdRequerimiento);
 
         //Tecnologia
-        void AltaTecnologia(Tecnologia tecnologia);
-        List<Tecnologia> ObtenerTecnologia();
+        Task AltaTecnologiasAsync(Tecnologia tecnologia);
+        Task<List<Tecnologia>> ObtenerTecnologiasAsync();
         Tecnologia TecnologiaPorId(byte idTecnologia);
 
-        List<Requerimiento> RequerimientosDeLaTecnologia(byte IdTecnologia);
-        List<Requerimiento> RequerimientosDelProyecto(short IdProyecto);
+        Task<List<Requerimiento>> RequerimientosDeLaTecnologiaAsync(byte IdTecnologia);
+        Task<List<Requerimiento>> RequerimientosDelProyectoAsync(short IdProyecto);
     }
 }
 

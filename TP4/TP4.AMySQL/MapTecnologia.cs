@@ -17,7 +17,7 @@ public class MapTecnologia : Mapeador<Tecnologia>
             Nombre = fila["tecnologia"].ToString()!
         };
 
-    public async Task AltaTecnologiaAsync(Tecnologia Tecnologia)
+    public async Task AltaTecnologiasAsync(Tecnologia Tecnologia)
         => await EjecutarComandoAsync("altaTecnologia", ConfigurarAltaTecnologia, PostAltaTecnologia, Tecnologia);
 
     public void ConfigurarAltaTecnologia(Tecnologia Tecnologia)

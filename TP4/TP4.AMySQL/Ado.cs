@@ -20,8 +20,8 @@ public class AdoSoftware : IAdo
 
     }
 
-    public async Task Altacliente(Cliente cliente)
-    => MapCliente.AltaClienteAsync(cliente);
+    public async Task AltaclienteAsync(Cliente cliente)
+    => await MapCliente.AltaClienteAsync(cliente);
 
 
     public async Task<List<Cliente>> ObtenerClientesAsync()
@@ -54,9 +54,9 @@ public class AdoSoftware : IAdo
         await MapRequerimiento.AltaRequerimientoAsync(requerimiento);
     }
 
-    public List<Requerimiento> ObtenerRequerimiento()
+    public async Task<List<Requerimiento>> ObtenerRequerimientoAsync()
     {
-        return MapRequerimiento.ObtenerRequerimientos();
+        return await MapRequerimiento.ObtenerRequerimientosAsync();
     }
 
     public async Task<Requerimiento> RequerimientoPorIdAsync(int IdRequerimiento)
@@ -64,14 +64,14 @@ public class AdoSoftware : IAdo
         return await MapRequerimiento.RequerimientoPorIdAsync(IdRequerimiento);
     }
 
-    public async Task AltaTecnologiaAsync(Tecnologia tecnologia)
+    public async Task AltaTecnologiasAsync(Tecnologia tecnologia)
     {
-        await MapTecnologia.AltaTecnologiaAsync(tecnologia);
+        await MapTecnologia.AltaTecnologiasAsync(tecnologia);
     }
 
-    public List<Tecnologia> ObtenerTecnologia()
+    public async Task<List<Tecnologia>> ObtenerTecnologiasAsync()
     {
-        return MapTecnologia.ObtenerTecnologias();
+        return await MapTecnologia.ObtenerTecnologiasAsync();
     }
 
     public Tecnologia TecnologiaPorId(byte idTecnologia)
@@ -79,16 +79,16 @@ public class AdoSoftware : IAdo
         return MapTecnologia.TecnologiaPorId(idTecnologia);
     }
 
-    public List<Proyecto> ProyectosDelCliente(int Cuit)
-        => MapProyecto.FilasFiltradas("cuit", Cuit);
+    public async Task<List<Proyecto>> ProyectosDelClienteAsync(int Cuit)
+        => await MapProyecto.FilasFiltradasAsync("cuit", Cuit);
 
-    public List<Requerimiento> RequerimientosDeLaTecnologia(byte idTecnologia)
+    public async Task<List<Requerimiento>> RequerimientosDeLaTecnologiaAsync(byte idTecnologia)
     {
-        return MapRequerimiento.FilasFiltradas("IdTecnologia", idTecnologia);
+        return await MapRequerimiento.FilasFiltradasAsync("IdTecnologia", idTecnologia);
     }
 
-    public List<Requerimiento> RequerimientosDelProyecto(short IdProyecto)
+    public async Task<List<Requerimiento>> RequerimientosDelProyectoAsync(short IdProyecto)
     {
-        return MapRequerimiento.FilasFiltradas("IdProyecto", IdProyecto);
+        return await MapRequerimiento.FilasFiltradasAsync("IdProyecto", IdProyecto);
     }
 }
