@@ -1,4 +1,5 @@
-@model TP4.Core.Proyecto
+@using TP4.Core;
+@model IEnumerable<Requerimiento>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,9 @@
 </head>
 
 <body>
-    <h1>Lista Proyecto</h1>
+    <h1>Cliente</h1>
+    <h2>@Model.First()._Proyecto.Descripcion</h2>
+    <h1>Lista Requerimientos</h1>
     <table>
         <thead>
             <tr>
@@ -29,7 +32,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            @* <tr>
                     <td>
                         <a >@Model.Descripcion</a>
                     </td>
@@ -45,28 +48,22 @@
                     <td>
                         <a >@Model.Cliente.Cuit</a>
                     </td>
-                </tr>
-            @* @foreach (Proyecto proyecto in Model)
+                </tr> *@
+            @foreach (Requerimiento requerimiento in Model)
             {
                 <tr>
                     <td>
-                        <a asp-controller="Proyecto" asp-action="Index" asp-route-id="@proyecto.Descripcion">@proyecto.Descripcion</a>
+                        <a asp-controller="Proyecto" asp-action="Index" asp-route-id="@requerimiento.Descripcion">@requerimiento.Descripcion</a>
                     </td>
                     <td>
-                        <a asp-controller="Proyecto" asp-action="Index" asp-route-id="@proyecto.Presupuesto">@proyecto.Presupuesto</a>
+                        <a asp-controller="Proyecto" asp-action="Index" asp-route-id="@requerimiento.Complejidad">@requerimiento.Complejidad</a>
                     </td>
                     <td>
-                        <a asp-controller="Proyecto" asp-action="Index" asp-route-id="@proyecto.Inicio">@proyecto.Inicio</a>
-                    </td>
-                    <td>
-                        <a asp-controller="Proyecto" asp-action="Index" asp-route-id="@proyecto.Fin">@proyecto.Fin</a>
-                    </td>
-                    <td>
-                        <a asp-controller="Proyecto" asp-action="Index" asp-route-id="@proyecto.Cliente.Cuit">@proyecto.Cliente.Cuit</a>
+                        <a asp-controller="Proyecto" asp-action="Index" asp-route-id="@requerimiento.Tecnologia">@requerimiento.Tecnologia.Nombre</a>
                     </td>
                 </tr>
 
-            } *@
+            }
         </tbody>
     </table>
 

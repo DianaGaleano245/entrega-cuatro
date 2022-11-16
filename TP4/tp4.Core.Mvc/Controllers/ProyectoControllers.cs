@@ -46,7 +46,7 @@ public class ProyectoController : Controller
         {
             return RedirectToAction(nameof(Index));
         }
-        var RequerimietoProyecto = _ado.ProyectosDelCliente(IdProyecto);
+        var RequerimietoProyecto = _ado.RequerimientosDelProyecto(IdProyecto);
         return View("Detalle",RequerimietoProyecto );
     }
 
