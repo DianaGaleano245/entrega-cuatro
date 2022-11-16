@@ -21,20 +21,23 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (Cliente cliente in Model)
+            @foreach (var cliente in Model)
             {
+                @* El "asp-route-'aca va el atributo que es el identificador unico del objeto, en este caso es "Cuit"
+                del Cliente '" *@
+                @* El "asp-controller" hace referencia al controlador que se esta usando *@
+                @* El "asp-action" hace referencia al metodo que se ejecutara en este caso es el "Index()" *@
                 <tr>
                     <td>
-                        <a asp-controller="Cliente" asp-action="Index" asp-route-id="@cliente.Cuit">@cliente.Cuit</a>
+                        <a asp-controller="Cliente" asp-action="Index" asp-route-Cuit="@cliente.Cuit">@cliente.Cuit</a>
                     </td>
                     <td>
-                        <a asp-controller="Cliente" asp-action="Index" asp-route-id="@cliente.Cuit">@cliente.RazonSocial</a>
+                        <a asp-controller="Cliente" asp-action="Index" asp-route-Cuit="@cliente.Cuit">@cliente.RazonSocial</a>
                     </td>
                     <td>
-                        <a asp-controller="Cliente" asp-action="Detalle"><button>Detalle</button></a>
+                        <a asp-action="Detalle" asp-route-Cuit="@cliente.Cuit"><button>Detalle</button></a>
                     </td>
                 </tr>
-
             }
         </tbody>
     </table>
