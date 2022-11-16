@@ -60,8 +60,8 @@ drop PROCEDURE if exists altaRequerimiento $$
 CREATE PROCEDURE altaRequerimiento(unIdRequerimiento INT , unIdProyecto SMALLINT , 
 										unIdTecnologia TINYINT , unaDescripcion VARCHAR (45) , unaComplejidad TINYINT UNSIGNED)
 begin
-		INSERT INTO Requerimiento(IdRequerimiento , IdProyecto , IdTecnologia , Descripcion , Complejidad)
-					VALUES(unIdRequerimiento , unIdProyecto , unIdTecnologia , unaDescripcion , unaComplejidad);
+		INSERT INTO Requerimiento( IdProyecto , IdTecnologia , Descripcion , Complejidad)
+					VALUES(unIdProyecto , unIdTecnologia , unaDescripcion , unaComplejidad);
 		SET unIdRequerimiento = last_insert_id();
 end $$
 
