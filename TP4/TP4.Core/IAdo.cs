@@ -30,8 +30,7 @@ namespace TP4.Core
         Tecnologia TecnologiaPorId(byte idTecnologia);
 
         List<Requerimiento> RequerimientosDeLaTecnologia(byte idTecnologia);
-
-
+        List<Requerimiento> RequerimientosDelProyecto(short IdProyecto);
     }
 }
 
