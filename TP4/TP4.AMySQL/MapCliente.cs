@@ -8,7 +8,11 @@ public class MapCliente : Mapeador<Cliente>
 {
     public MapCliente(AdoAGBD ado) : base(ado) => Tabla = "Cliente";
 
-    public List<Cliente> ObtenerClientes() => ColeccionDesdeTabla();
+
+
+    // public List<Cliente> ObtenerClientes() => ColeccionDesdeTabla();
+    public async Task<List<Cliente>> ObtenerClientes() => await ColeccionDesdeTablaAsync();
+
     public override Cliente ObjetoDesdeFila(DataRow fila)
         => new Cliente
         {
@@ -16,10 +20,11 @@ public class MapCliente : Mapeador<Cliente>
             RazonSocial = fila["razonSocial"].ToString()!
         };
 
-    public void AltaCliente(Cliente cliente)
-        => EjecutarComandoCon("altaCliente", ConfigurarAltaCliente, PostAltaCliente, cliente);
-
-    public void ConfigurarAltaCliente(Cliente cliente)
+    // public void AltaCliente(Cliente cliente)
+    //     => EjecutarComandoCon("altaCliente", ConfigurarAltaCliente, PostAltaCliente, cliente);
+    public async Task AltaClienteAsyn(Cliente cliente)
+        => await EjecutarComandoAsync("altaCliente", ConfigurarAltaClienteAsync, PostAltaClienteAsync, cliente);
+    public void ConfigurarAltaClienteAsync(Cliente cliente)
     {
         SetComandoSP("altaCliente");
 
@@ -34,7 +39,7 @@ public class MapCliente : Mapeador<Cliente>
             .AgregarParametro();
     }
 
-    public void PostAltaCliente(Cliente cliente)
+    public async Task PostAltaClienteAsync(Cliente cliente)
         => cliente.Cuit = Convert.ToInt32(GetParametro("unCuit").Value);
 
 
