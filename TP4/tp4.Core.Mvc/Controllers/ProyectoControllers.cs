@@ -35,4 +35,7 @@ public class ProyectoController : Controller
 
         return Redirect(nameof(Index));
     }
+    public IActionResult Detalle() => View("Detalle", _ado.ObtenerProyectos());
+
+
 }
