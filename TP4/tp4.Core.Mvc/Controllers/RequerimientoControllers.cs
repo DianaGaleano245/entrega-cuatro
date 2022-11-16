@@ -37,4 +37,13 @@ public class RequerimientoController : Controller
         }
         return Redirect(nameof(Index));
     }
+    public IActionResult Detalle(int IdRequerimiento)
+    {
+        if (IdRequerimiento == 0)
+        {
+            return RedirectToAction(nameof(Index));
+        }
+        var RequerimietoGuardado = _ado.RequerimientoPorId(IdRequerimiento);
+        return View("Detalle",RequerimietoGuardado );
+    }
 }

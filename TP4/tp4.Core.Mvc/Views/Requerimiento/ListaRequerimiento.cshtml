@@ -25,15 +25,13 @@
             {
                 <tr>
                     <td>
-                        <a asp-controller="Requerimiento" asp-action="Index"
-                        asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.Descripcion</a>
+                        <a asp-controller="Requerimiento" asp-action="Index"asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.Descripcion</a>
                     </td>
                     <td>
-                        <a asp-controller="Requerimiento" asp-action="Index"
-                        asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.Complejidad</a>
+                        <a asp-controller="Requerimiento" asp-action="Index"asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.Complejidad</a>
                     </td>
                     <td>
-                        <a asp-controller="Requerimiento" asp-action="Detalle"><button>Detalle</button></a>
+                        <a asp-controller="Requerimiento" asp-action="Detalle"asp-route-IdRequerimiento="@requerimiento.IdRequerimiento"><button>Detalle</button></a>
                     </td>
                 </tr>
 
