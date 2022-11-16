@@ -1,5 +1,4 @@
-@using TP4.Core;
-@model IEnumerable<Requerimiento>
+@model TP4.Core.Requerimiento
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,8 +25,22 @@
                 </th>
             </tr>
         </thead>
-        <tbody>
-            @foreach (Requerimiento requerimiento in Model)
+        <tbody> <tr>
+                    <td>
+                        <a >@Model.Descripcion</a>
+                    </td>
+                    <td>
+                        <a>@Model.Complejidad</a>
+                    </td>
+                    <td>
+                        <a>@Model._Proyecto.Descripcion</a>
+                    </td>
+                    <td>
+                        <a >@Model.Tecnologia.Nombre</a>
+                    </td>
+
+                </tr>
+            @* @foreach (Requerimiento requerimiento in Model)
             {
                 <tr>
                 
@@ -52,7 +65,7 @@
                     </td>
                 </tr>
 
-            }
+            } *@
         </tbody>
     </table>
 
