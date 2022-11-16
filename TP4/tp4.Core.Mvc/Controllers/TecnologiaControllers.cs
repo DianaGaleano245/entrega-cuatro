@@ -13,9 +13,9 @@ public class TecnologiaController : Controller
     [HttpGet]
     public IActionResult Index() => View("ListaTecnologia", _ado.ObtenerTecnologia());
 
-    public IActionResult Detalle(byte idTecnologia)
+    public IActionResult Detalle(byte IdTecnologia)
     {
-        if (idTecnologia == 0)
+        if (IdTecnologia == 0)
         {
             //El "RedirectToAction" redirecciona al metodo "Index()" 
             return RedirectToAction(nameof(Index));
@@ -23,7 +23,7 @@ public class TecnologiaController : Controller
 
         // Guardamos en la variable "proyectosCliente" los proyectos de los cuales el cuit del cliente que contienen
         // sea igual al Cuit que le pasamos por parametro en este caso "Cuit"
-        var requerimientosTecnologia = _ado.RequerimientosDeLaTecnologia(idTecnologia);
+        var requerimientosTecnologia = _ado.RequerimientosDeLaTecnologia(IdTecnologia);
         return View("Detalle", requerimientosTecnologia);
     }
 

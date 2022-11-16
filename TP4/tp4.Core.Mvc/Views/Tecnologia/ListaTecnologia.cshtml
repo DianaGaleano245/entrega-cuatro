@@ -22,10 +22,12 @@
             {
                 <tr>
                     <td>
-                        <a asp-controller="Tecnologia" asp-action="Index" asp-route-id="@tecnologia.Nombre">@tecnologia.Nombre</a>
+                        <a asp-controller="Tecnologia" asp-action="Index"
+                        asp-route-id="@tecnologia.Nombre">@tecnologia.Nombre</a>
                     </td>
                     <td>
-                        <a asp-controller="  " asp-actiona=" "><button>Detalle</button></a>
+                        <a asp-controller="Tecnologia" asp-action="Detalle"
+                        asp-route-IdTecnologia="tecnologia.IdTecnologia"><button>Detalle</button></a>
                     </td>
                 </tr>
 

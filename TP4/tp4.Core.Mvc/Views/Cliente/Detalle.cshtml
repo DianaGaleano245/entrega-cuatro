@@ -2,12 +2,14 @@
 @model IEnumerable<Proyecto>;
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
+
 <body>
-    
+
     @* Muestra el nombre del primer *@
     <h1>Cliente</h1>
     <h2>@Model.First().Cliente.RazonSocial</h2>
@@ -29,15 +31,18 @@
             {
                 <tr>
                     <td>
-                        <a asp-controller="Cliente" asp-action="Detalle" asp-route-id="@proyecto.Descripcion">@proyecto.Descripcion</a>
+                        <a asp-controller="Cliente" asp-action="Detalle"
+                        asp-route-id="@proyecto.Descripcion">@proyecto.Descripcion</a>
                     </td>
                     <td>
-                        <a asp-controller="Cliente" asp-action="Detalle" asp-route-id="@proyecto.Presupuesto">@proyecto.Presupuesto</a>
+                        <a asp-controller="Cliente" asp-action="Detalle"
+                        asp-route-id="@proyecto.Presupuesto">@proyecto.Presupuesto</a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-    
+
 </body>
+
 </html>

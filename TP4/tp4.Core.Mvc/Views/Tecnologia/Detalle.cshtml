@@ -1,0 +1,45 @@
+@using TP4.Core;
+@model IEnumerable<Requerimiento>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Requerimiento</title>
+</head>
+
+<body>
+    <h1>Lista Requerimiento</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    CostoBase
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Requerimiento requerimiento in Model)
+            {
+                <tr>
+
+                    <td>
+                        <a asp-controller="Requerimiento" asp-action="Index"
+                        asp-route-id="@requerimiento.IdRequerimiento">@requerimiento.Complejidad</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Requerimiento" asp-action="Index"
+                        asp-route-idRequerimiento="@requerimiento.IdRequerimiento">@requerimiento.Descripcion</a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+</body>
+
+
+</html>
