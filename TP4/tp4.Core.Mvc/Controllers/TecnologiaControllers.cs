@@ -17,12 +17,8 @@ public class TecnologiaController : Controller
     {
         if (IdTecnologia == 0)
         {
-            //El "RedirectToAction" redirecciona al metodo "Index()" 
             return RedirectToAction(nameof(Index));
         }
-
-        // Guardamos en la variable "proyectosCliente" los proyectos de los cuales el cuit del cliente que contienen
-        // sea igual al Cuit que le pasamos por parametro en este caso "Cuit"
         var requerimientosTecnologia = _ado.RequerimientosDeLaTecnologia(IdTecnologia);
         return View("Detalle", requerimientosTecnologia);
     }

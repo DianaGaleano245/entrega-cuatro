@@ -87,11 +87,11 @@ public class AdoSoftware : IAdo
 
     public List<Requerimiento> RequerimientosDeLaTecnologia(byte idTecnologia)
     {
-        return MapRequerimiento.FilasFiltradas("idTecnologia", idTecnologia);
+        return MapRequerimiento.FilasFiltradas("IdTecnologia", idTecnologia);
     }
 
     public List<Requerimiento> RequerimientosDelProyecto(short IdProyecto)
     {
-        return MapRequerimiento.FilasFiltradas("IdProyecto",IdProyecto);
+        return MapRequerimiento.FilasFiltradas("IdProyecto", IdProyecto);
     }
 }
