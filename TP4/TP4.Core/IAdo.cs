@@ -29,6 +29,8 @@ namespace TP4.Core
         List<Tecnologia> ObtenerTecnologia();
         Tecnologia TecnologiaPorId(byte idTecnologia);
 
+        List<Requerimiento> RequerimientosDeLaTecnologia(byte idTecnologia);
+
 
     }
 }

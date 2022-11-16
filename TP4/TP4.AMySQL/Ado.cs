@@ -84,4 +84,13 @@ public class AdoSoftware : IAdo
 
     public List<Proyecto> ProyectosDelCliente(int Cuit)
         => MapProyecto.FilasFiltradas("cuit", Cuit);
+
+    public List<Requerimiento> RequerimientosDeLaTecnologia(byte idTecnologia)
+    {
+        return MapRequerimiento.FilasFiltradas("idTecnologia", idTecnologia);
+    }
+
+
+
+
 }
