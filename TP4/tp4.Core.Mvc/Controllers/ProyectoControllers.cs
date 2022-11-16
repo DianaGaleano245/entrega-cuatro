@@ -35,7 +35,11 @@ public class ProyectoController : Controller
 
         return Redirect(nameof(Index));
     }
-    public IActionResult Detalle() => View("Detalle", _ado.ObtenerProyectos());
+    public IActionResult Detalle(short IdProyecto)
+    {
+        var ProyectoGuardado = _ado.ProyectoPorId(IdProyecto);
+        return View("Detalle",ProyectoGuardado );
+    }
 
 
 }

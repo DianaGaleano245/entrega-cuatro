@@ -1,5 +1,4 @@
-@using TP4.Core;
-@model IEnumerable<Proyecto>
+@model TP4.Core.Proyecto
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +29,24 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (Proyecto proyecto in Model)
+            <tr>
+                    <td>
+                        <a >@Model.Descripcion</a>
+                    </td>
+                    <td>
+                        <a><@Model.Presupuesto</a>
+                    </td>
+                    <td>
+                        <a>@Model.Inicio</a>
+                    </td>
+                    <td>
+                        <a >@Model.Fin</a>
+                    </td>
+                    <td>
+                        <a >@Model.Cliente.Cuit</a>
+                    </td>
+                </tr>
+            @* @foreach (Proyecto proyecto in Model)
             {
                 <tr>
                     <td>
@@ -50,7 +66,7 @@
                     </td>
                 </tr>
 
-            }
+            } *@
         </tbody>
     </table>
 
