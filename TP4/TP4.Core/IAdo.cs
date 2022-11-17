@@ -11,13 +11,13 @@ namespace TP4.Core
         //Cliente
         Task AltaclienteAsync(Cliente cliente);
         Task<List<Cliente>> ObtenerClientesAsync();
-        Cliente ClientePorCuit(int Cuit);
+        Task<Cliente> ClientePorCuitAsync(int Cuit);
 
         Task<List<Proyecto>> ProyectosDelClienteAsync(int Cuit);
         // proyecto
         Task AltaProyectoAsync(Proyecto proyecto);
         Task<List<Proyecto>> ObtenerProyectosAsync();
-        Proyecto ProyectoPorId(short IdProyecto);
+        Task<Proyecto> ProyectoPorIdAsync(short IdProyecto);
 
         //Requerimiento
         Task AltaRequerimientoAsync(Requerimiento requerimiento);
@@ -25,9 +25,9 @@ namespace TP4.Core
         Task<Requerimiento> RequerimientoPorIdAsync(int IdRequerimiento);
 
         //Tecnologia
-        Task AltaTecnologiasAsync(Tecnologia tecnologia);
+        Task AltaTecnologiaAsync(Tecnologia tecnologia);
         Task<List<Tecnologia>> ObtenerTecnologiasAsync();
-        Tecnologia TecnologiaPorId(byte idTecnologia);
+        Task<Tecnologia> TecnologiaPorIdAsync(byte idTecnologia);
 
         Task<List<Requerimiento>> RequerimientosDeLaTecnologiaAsync(byte IdTecnologia);
         Task<List<Requerimiento>> RequerimientosDelProyectoAsync(short IdProyecto);

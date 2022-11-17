@@ -29,9 +29,9 @@ public class AdoSoftware : IAdo
         return await MapCliente.ObtenerClientesAsync();
     }
 
-    public Cliente ClientePorCuit(int cuit)
+    public async Task<Cliente> ClientePorCuitAsync(int cuit)
     {
-        return MapCliente.ClientePorCuit(cuit);
+        return await MapCliente.ClientePorCuitAsync(cuit);
     }
 
     public async Task AltaProyectoAsync(Proyecto proyecto)
@@ -44,9 +44,9 @@ public class AdoSoftware : IAdo
         return await MapProyecto.ObtenerProyectosAsync();
     }
 
-    public Proyecto ProyectoPorId(short IdProyecto)
+    public async Task<Proyecto> ProyectoPorIdAsync(short IdProyecto)
     {
-        return MapProyecto.ProyectoPorId(IdProyecto);
+        return await MapProyecto.ProyectoPorIdAsync(IdProyecto);
     }
 
     public async Task AltaRequerimientoAsync(Requerimiento requerimiento)
@@ -64,19 +64,19 @@ public class AdoSoftware : IAdo
         return await MapRequerimiento.RequerimientoPorIdAsync(IdRequerimiento);
     }
 
-    public async Task AltaTecnologiasAsync(Tecnologia tecnologia)
+    public async Task AltaTecnologiaAsync(Tecnologia tecnologia)
     {
-        await MapTecnologia.AltaTecnologiasAsync(tecnologia);
+        await MapTecnologia.AltaTecnologiaAsync(tecnologia);
     }
 
-    public async Task<List<Tecnologia>> ObtenerTecnologiasAsync()
+    public async Task<List<Tecnologia>> ObtenerTecnologiaAsync()
     {
-        return await MapTecnologia.ObtenerTecnologiasAsync();
+        return await MapTecnologia.ObtenerTecnologiaAsync();
     }
 
-    public Tecnologia TecnologiaPorId(byte idTecnologia)
+    public Task<Tecnologia> TecnologiaPorIdAsync(byte idTecnologia)
     {
-        return MapTecnologia.TecnologiaPorId(idTecnologia);
+        return await MapTecnologia.TecnologiaPorIdAsync(idTecnologia);
     }
 
     public async Task<List<Proyecto>> ProyectosDelClienteAsync(int Cuit)

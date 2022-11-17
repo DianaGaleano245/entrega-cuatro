@@ -12,25 +12,25 @@ public class ProyectoController : Controller
         _ado = ado;
     }
     [HttpGet]
-    public IActionResult Index() => View("ListaProyecto", _ado.ObtenerProyectos());
+    public async Task<IActionResult> Index() => View("ListaProyecto", await _ado.ObtenerProyectosAsync());
 
 
     [HttpGet]
-    public IActionResult AltaProyecto()
+    public async Task<IActionResult> AltaProyecto()
     {
-        var Clientes = _ado.ObtenerClientes();
+        var Clientes = await _ado.ObtenerClientesAsync();
         var vmProyecto = new VMProyecto(Clientes);
         return View(vmProyecto);
     }
 
     [HttpPost]
-    public IActionResult AltaProyecto(VMProyecto vmProyecto)
+    public async Task<IActionResult> AltaProyecto(VMProyecto vmProyecto)
     {
         if (vmProyecto.idProyecto == 0)
         {
-            var cliente = _ado.ClientePorCuit(vmProyecto.Cuit);
+            var cliente = await _ado.ClientePorCuitAsync(vmProyecto.Cuit);
             var _Proyecto = new Proyecto(cliente, vmProyecto.DescripcionProyecto!, vmProyecto.PresupuestoProyecto!,vmProyecto.InicioProyecto!,vmProyecto.FinProyecto!);
-            _ado.AltaProyecto(_Proyecto);
+            await _ado.AltaProyectoAsync(_Proyecto);
         }
 
         return Redirect(nameof(Index));
@@ -40,13 +40,13 @@ public class ProyectoController : Controller
     //     var ProyectoGuardado = _ado.ProyectoPorId(IdProyecto);
     //     return View("Detalle",ProyectoGuardado );
     // }
-     public IActionResult Detalle(short IdProyecto)
+     public async Task<IActionResult> Detalle(short IdProyecto)
     {
         if (IdProyecto == 0)
         {
             return RedirectToAction(nameof(Index));
         }
-        var RequerimietoProyecto = _ado.RequerimientosDelProyecto(IdProyecto);
+        var RequerimietoProyecto = await _ado.RequerimientosDelProyectoAsync(IdProyecto);
         return View("Detalle",RequerimietoProyecto );
     }
 

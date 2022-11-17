@@ -9,9 +9,9 @@ public class ClienteController : Controller
     {
         _ado = ado;
     }
-    public IActionResult Index() => View("ListaCliente", _ado.ObtenerClientes());
+    public async Task<IActionResult> Index() => View("ListaCliente", await _ado.ObtenerClientesAsync());
 
-    public IActionResult Detalle(int Cuit)
+    public async Task<IActionResult> Detalle(int Cuit)
     {
         if (Cuit == 0)
         {
@@ -21,7 +21,7 @@ public class ClienteController : Controller
 
         // Guardamos en la variable "proyectosCliente" los proyectos de los cuales el cuit del cliente que contienen
         // sea igual al Cuit que le pasamos por parametro en este caso "Cuit"
-        var proyectosCliente = _ado.ProyectosDelCliente(Cuit);
+        var proyectosCliente = await _ado.ProyectosDelClienteAsync(Cuit);
         return View("Detalle", proyectosCliente);
     }
 
@@ -32,9 +32,9 @@ public class ClienteController : Controller
     }
 
     [HttpPost]
-    public IActionResult AltaCliente(Cliente cliente)
+    public async Task<IActionResult> AltaCliente(Cliente cliente)
     {
-        _ado.Altacliente(cliente);
+        await _ado.AltaclienteAsync(cliente);
         return Redirect(nameof(Index));
     }
     
