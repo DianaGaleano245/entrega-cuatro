@@ -11,24 +11,17 @@ public class TecnologiaController : Controller
     }
 
     [HttpGet]
-    public IActionResult Index() => View("ListaTecnologia", _ado.ObtenerTecnologia());
+    public async Task<IActionResult> Index() => View("ListaTecnologia",await _ado.ObtenerTecnologiasAsync());
 
-    public IActionResult Detalle(byte IdTecnologia)
+    public async Task<IActionResult> Detalle(byte IdTecnologia)
     {
         if (IdTecnologia == 0)
         {
             return RedirectToAction(nameof(Index));
         }
-        var requerimientosTecnologia = _ado.RequerimientosDeLaTecnologia(IdTecnologia);
+        var requerimientosTecnologia = await _ado.RequerimientosDeLaTecnologiaAsync(IdTecnologia);
         return View("Detalle", requerimientosTecnologia);
     }
-
-    [HttpGet]
-    public IActionResult AltaCliente()
-    {
-        return View();
-    }
-
 
     [HttpGet]
     public IActionResult AltaTecnologia()
@@ -37,9 +30,9 @@ public class TecnologiaController : Controller
     }
 
     [HttpPost]
-    public IActionResult AltaTecnologia(Tecnologia Tecnologia)
+    public async Task<IActionResult> AltaTecnologia(Tecnologia Tecnologia)
     {
-        _ado.AltaTecnologia(Tecnologia);
+        await _ado.AltaTecnologiaAsync(Tecnologia);
         return Redirect(nameof(Index));
     }
 

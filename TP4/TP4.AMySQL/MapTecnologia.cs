@@ -17,7 +17,7 @@ public class MapTecnologia : Mapeador<Tecnologia>
             Nombre = fila["tecnologia"].ToString()!
         };
 
-    public async Task AltaTecnologiasAsync(Tecnologia Tecnologia)
+    public async Task AltaTecnologiaAsync(Tecnologia Tecnologia)
         => await EjecutarComandoAsync("altaTecnologia", ConfigurarAltaTecnologia, PostAltaTecnologia, Tecnologia);
 
     public void ConfigurarAltaTecnologia(Tecnologia Tecnologia)
@@ -45,6 +45,17 @@ public class MapTecnologia : Mapeador<Tecnologia>
 
 
 
+    public async Task<Tecnologia> TecnologiaPorIdAsync(byte IdTecnologia)
+    {
+        SetComandoSP("TecnologiaPorId");
+
+        BP.CrearParametro("unIdtecnologia")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Byte)
+            .SetValor(IdTecnologia)
+            .AgregarParametro();
+
+        return await ElementoDesdeSPAsync();
+    }
     public Tecnologia TecnologiaPorId(byte IdTecnologia)
     {
         SetComandoSP("TecnologiaPorId");

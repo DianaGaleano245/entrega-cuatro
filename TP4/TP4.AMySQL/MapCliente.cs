@@ -44,6 +44,17 @@ public class MapCliente : Mapeador<Cliente>
 
 
 
+    public async Task<Cliente> ClientePorCuitAsync(int cuit)
+    {
+        SetComandoSP("clientePorCuit");
+
+        BP.CrearParametro("unCuit")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .SetValor(cuit)
+            .AgregarParametro();
+
+        return await ElementoDesdeSPAsync();
+    }
     public Cliente ClientePorCuit(int cuit)
     {
         SetComandoSP("clientePorCuit");

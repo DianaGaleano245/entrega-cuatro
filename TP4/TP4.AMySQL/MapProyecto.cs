@@ -8,6 +8,7 @@ namespace TP4.AdoMySQL;
 public class MapProyecto : Mapeador<Proyecto>
 {
     public MapProyecto(AdoAGBD ado) : base(ado) => Tabla = "Proyecto";
+    
     public MapCliente MapCliente { get; set; }
     public MapProyecto(MapCliente mapCliente) : this(mapCliente.AdoAGBD)
     {
@@ -68,6 +69,18 @@ public class MapProyecto : Mapeador<Proyecto>
         => Proyecto.IdProyecto = Convert.ToInt16(GetParametro("unIdProyecto").Value);
 
 
+
+    public async Task<Proyecto> ProyectoPorIdAsync(short IdProyecto)
+    {
+        SetComandoSP("proyectoPorId");
+
+        BP.CrearParametro("unIdProyecto")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+            .SetValor(IdProyecto)
+            .AgregarParametro();
+
+        return await ElementoDesdeSPAsync();
+    }
 
     public Proyecto ProyectoPorId(short IdProyecto)
     {

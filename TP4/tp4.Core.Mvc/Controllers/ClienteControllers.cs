@@ -37,16 +37,5 @@ public class ClienteController : Controller
         await _ado.AltaclienteAsync(cliente);
         return Redirect(nameof(Index));
     }
-    
-
-
-
-        
-
-
-
-
-
-
 
 }
