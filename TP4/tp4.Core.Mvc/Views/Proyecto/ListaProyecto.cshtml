@@ -15,9 +15,6 @@
         <thead>
             <tr>
                 <th>
-                    Cliente
-                </th>
-                <th>
                     Descripcion
                 </th>
                 <th>
@@ -40,6 +37,12 @@
                     </td>
                     <td>
                         <a asp-controller="Proyecto" asp-action="Index"asp-route-id="@proyecto.Presupuesto">@proyecto.Presupuesto</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Proyecto" asp-action="Index"asp-route-id="@proyecto.Inicio">@proyecto.Inicio.ToShortDateString()</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Proyecto" asp-action="Index"asp-route-id="@proyecto.Fin">@proyecto.Fin.ToShortDateString()</a>
                     </td>
                     <td>
                         <a asp-controller="Proyecto" asp-action="Detalle"asp-route-IdProyecto="@proyecto.IdProyecto"><button>Detalle</button></a>
