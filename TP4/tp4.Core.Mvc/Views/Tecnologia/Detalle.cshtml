@@ -4,6 +4,7 @@
 <html lang="en">
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Detalle tecnologia</title>
 </head>
 
@@ -11,7 +12,8 @@
     <h1>Tecnologia</h1>
     <h2>@Model.First()._Proyecto.Descripcion</h2>
     <h1>Lista de requerimientos de la tecnologia</h1>
-    <table>
+    <div class="table-responsive">
+    <table class="table">
         <thead>
             <tr>
                 <th>
@@ -40,7 +42,7 @@
             }
         </tbody>
     </table>
-
+    </div>
 </body>
 
 
