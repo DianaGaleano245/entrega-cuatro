@@ -15,7 +15,7 @@
 
 **Nombre TP**: <!-- ENTREGA CUATRO -->
 
-**Apellido y nombre Alumnas**: <!-- Galeano Diana y Torrez jessica -->
+**Apellido y nombre Alumnas**: <!-- Galeano Diana , Torrez jessica y Inti Irahola -->
 
 **Curso**: <!-- 6º7º-->
 
