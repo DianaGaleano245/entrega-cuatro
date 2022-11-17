@@ -68,13 +68,12 @@ public class AdoSoftware : IAdo
     {
         await MapTecnologia.AltaTecnologiaAsync(tecnologia);
     }
-
-    public async Task<List<Tecnologia>> ObtenerTecnologiaAsync()
+    public async Task<List<Tecnologia>> ObtenerTecnologiasAsync()
     {
-        return await MapTecnologia.ObtenerTecnologiaAsync();
+        return await MapTecnologia.ObtenerTecnologiasAsync();
     }
 
-    public Task<Tecnologia> TecnologiaPorIdAsync(byte idTecnologia)
+    public async Task<Tecnologia> TecnologiaPorIdAsync(byte idTecnologia)
     {
         return await MapTecnologia.TecnologiaPorIdAsync(idTecnologia);
     }
@@ -91,4 +90,5 @@ public class AdoSoftware : IAdo
     {
         return await MapRequerimiento.FilasFiltradasAsync("IdProyecto", IdProyecto);
     }
+
 }
